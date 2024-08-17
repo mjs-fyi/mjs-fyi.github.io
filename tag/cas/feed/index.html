@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cas &#8211; mjs.fyi</title>
+	<atom:link href="/tag/cas/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Sun, 05 Jan 2014 22:36:52 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Need to deploy a quick JASIG CAS demo? Try jasig-cas-quickdemo!</title>
+		<link>/2014/01/need-to-deploy-a-quick-jasig-cas-demo-try-jasig-cas-quickdemo/</link>
+					<comments>/2014/01/need-to-deploy-a-quick-jasig-cas-demo-try-jasig-cas-quickdemo/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sun, 05 Jan 2014 22:36:52 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cas]]></category>
+		<category><![CDATA[linux]]></category>
+		<guid isPermaLink="false">http://forsetti.wordpress.com/?p=399</guid>
+
+					<description><![CDATA[My development activities on mod_auth_cas have significantly reduced over the past couple of years.  In trying to reinvigorate my development cycles around mod_auth_cas, I needed to deploy a CAS server.  Deploying CAS is already pretty straightforward &#8212; install Tomcat, generate SSL certs, deploy the CAS war, and enjoy.  However, I wanted to automate this process to make [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>My development activities on <a href="https://github.com/jasig/mod_auth_cas">mod_auth_cas</a> have significantly reduced over the past couple of years.  In trying to reinvigorate my development cycles around mod_auth_cas, I needed to deploy a CAS server.  Deploying CAS is already <a href="https://wiki.jasig.org/display/CASUM/Demo">pretty straightforward</a> &#8212; install Tomcat, generate SSL certs, deploy the CAS war, and enjoy.  However, I wanted to automate this process to make it easier to repeatedly redeploy a completely clean environment.</p>
+<p>So, I have just posted <a href="https://github.com/forsetti/jasig-cas-quickdemo">jasig-cas-quickdemo</a> to GitHub.</p>
+<p>jasig-cas-quickdemo is a Maven project that does the following:</p>
+<ul>
+<li>Downloads and builds the JASIG CAS project,</li>
+<li>Uses the <a href="http://tomcat.apache.org/maven-plugin.html">Maven Tomcat plugin</a>, download deploy Tomcat 7,</li>
+<li>Generates an SSL cert for HTTPS access, and exports the public cert in PEM format for use by CAS clients,</li>
+<li>Launch CAS on the local Tomcat 7 instance, with the default username=passwored authenticationHandler,</li>
+<li>Grants access to the &#8216;admin&#8217; account for the Services Management interface.</li>
+</ul>
+<p>Try the following on Fedora 19+:</p>
+<pre>$ yum install maven git
+$ git clone https://github.com/forsetti/jasig-cas-quickdemo.git
+$ cd jasig-cas-quickdemo
+$ mvn integration-test</pre>
+<p>Then just point your browser to https://localhost:8443/cas , and you should see the default CAS login screen.</p>
+<p>Check out the <a href="https://github.com/forsetti/jasig-cas-quickdemo/blob/master/README.md">README</a> for more information.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2014/01/need-to-deploy-a-quick-jasig-cas-demo-try-jasig-cas-quickdemo/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

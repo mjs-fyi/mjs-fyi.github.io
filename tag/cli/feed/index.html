@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cli &#8211; mjs.fyi</title>
+	<atom:link href="/tag/cli/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Sat, 10 Nov 2018 14:00:21 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Making a Word Cloud of your #TaskWarrior Tags</title>
+		<link>/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/</link>
+					<comments>/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sat, 10 Nov 2018 14:00:21 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cli]]></category>
+		<category><![CDATA[shell]]></category>
+		<category><![CDATA[taskwarrior]]></category>
+		<category><![CDATA[wordcloud]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=794</guid>
+
+					<description><![CDATA[Here is a quick way to generate a word cloud of your Task Warrior tags: [mjs]$ ( echo graph d{ ; task tags &#124; tail -n +4 &#124; awk '{print "\""$1"\"[fontsize="10*sqrt($2)",shape=none];"}'; echo } ) &#124; fdp -Tpng &#62; tag-cloud.png Note that &#8220;fdp&#8221; comes from the &#8220;graphviz&#8221; package, so make sure that is installed first.]]></description>
+										<content:encoded><![CDATA[<p>Here is a quick way to generate a word cloud of your Task Warrior tags:</p>
+<pre>[mjs]$ ( echo graph d{ ; task tags | tail -n +4 | awk '{print "\""$1"\"[fontsize="10*sqrt($2)",shape=none];"}'; echo } ) | fdp -Tpng &gt; tag-cloud.png</pre>
+<p>Note that &#8220;fdp&#8221; comes from the &#8220;graphviz&#8221; package, so make sure that is installed first.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>debian &#8211; mjs.fyi</title>
+	<atom:link href="/category/debian/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Sat, 10 Sep 2011 22:53:11 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>UCARP and Squeeze</title>
+		<link>/2011/09/ucarp-and-squeeze/</link>
+					<comments>/2011/09/ucarp-and-squeeze/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sat, 10 Sep 2011 22:53:11 +0000</pubDate>
+				<category><![CDATA[debian]]></category>
+		<category><![CDATA[syndicated]]></category>
+		<category><![CDATA[forsetti]]></category>
+		<category><![CDATA[linux]]></category>
+		<guid isPermaLink="false">http://forsetti.wordpress.com/?p=84</guid>
+
+					<description><![CDATA[IP fault tolerance on Debian Squeeze couldn&#8217;t be easier than with UCARP!: Install UCARP on all nodes: apt-get install ucarp Edit /etc/network/interfaces on all nodes, replacing &#60;CLUSTER IP&#62; and &#60;PASSWORD&#62; as appropriate: iface eth0 inet static ... ucarp-vid 3 ucarp-vip &#60;CLUSTER IP&#62; ucarp-password &#60;PASSWORD&#62; ucarp-xparam -n iface eth0:ucarp inet static address &#60;CLUSTER IP&#62; netmask 255.255.255.255 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>IP fault tolerance on Debian Squeeze couldn&#8217;t be easier than with <a href="http://www.ucarp.org/project/ucarp">UCARP</a>!:</p>
+<ul>
+<li>Install UCARP on all nodes:
+<pre>apt-get install ucarp</pre>
+</li>
+<li>Edit /etc/network/interfaces on all nodes, replacing &lt;CLUSTER IP&gt; and &lt;PASSWORD&gt; as appropriate:
+<pre>iface eth0 inet static
+...
+ucarp-vid 3
+ucarp-vip &lt;CLUSTER IP&gt;
+ucarp-password &lt;PASSWORD&gt;
+ucarp-xparam -n
+iface eth0:ucarp inet static
+address &lt;CLUSTER IP&gt;
+netmask 255.255.255.255</pre>
+</li>
+<li>Reboot, and you&#8217;re done!  &lt;CLUSTER IP&gt; will now be available from one of the nodes in your cluster at all times!</li>
+</ul>
+<p>A few notes:</p>
+<ul>
+<li>All nodes in your UCARP cluster must be in the same subnet, and the shared cluster IP must also be in the same subnet.</li>
+<li>UCARP does not do cluster resource management for you, but it does provide hooks.  You will need to write some scripts to handle unmounting/mounting of shared storage, etc.</li>
+<li>UCARP does not detect service failures, only whole-host (or IP stack) failures.  But if you can detect the failure, simply send SIGUSR2 to the ucarp process to force into passive mode, forcing another node to become master.</li>
+</ul>
+<div>All-in-all, about as simple and sufficient as one can get!</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2011/09/ucarp-and-squeeze/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		<enclosure url="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=96&#038;d=identicon&#038;r=G" length="0" type="" />
+
+			</item>
+	</channel>
+</rss>

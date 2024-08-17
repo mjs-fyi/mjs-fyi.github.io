@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>mjs.fyi</title>
+	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Mon, 07 Jan 2019 00:54:02 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Installing Fedora 29 on Orange Pi Zero</title>
+		<link>/2019/01/installing-fedora-29-on-orange-pi-zero/</link>
+					<comments>/2019/01/installing-fedora-29-on-orange-pi-zero/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Mon, 07 Jan 2019 00:54:02 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=800</guid>
+
+					<description><![CDATA[Here are the steps to install Fedora 29 (armhfp) on the Orange PI Zero, from a Fedora 29 desktop. &#8220;opz&#8221; will be used throughout post to avoid typing &#8220;Orange Pi Zero&#8221; repeatedly. Prepare sdcard on desktop Perform these steps on your Fedora 29 desktop to prepare the sdcard that will be used in the opz. [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>Here are the steps to install Fedora 29 (armhfp) on the Orange PI Zero, from a Fedora 29 desktop.  &#8220;opz&#8221; will be used throughout post to avoid typing &#8220;Orange Pi Zero&#8221; repeatedly.</p>
+
+
+
+<h2 class="wp-block-heading">Prepare sdcard on desktop</h2>
+
+
+
+<p>Perform these steps on your Fedora 29 desktop to prepare the sdcard that will be used in the opz.<br /></p>
+
+
+
+<ul class="wp-block-list"><li>Download Fedora 29 Minimal Image for armv7 from https://arm.fedoraproject.org/</li><li>Install ARM image tool packages<pre>sudo dnf install uboot-images-armv7 arm-image-installer</pre></li><li>Install image to sdcard. Replace &#8220;sdX&#8221; with location of your sdcard and adjust paths to ssh key and downloaded image as appropriate.<pre>sudo arm-image-installer --media /dev/sdX --target=orangepi_zero --image=Fedora-Minimal-armhfp-29-1.2-sda.raw.xz --resizefs --addkey=.ssh/id_rsa.pub --relabel</pre></li></ul>
+
+
+
+<h2 class="wp-block-heading">Boot Orange Pi Zero</h2>
+
+
+
+<ul class="wp-block-list"><li>Eject the sdcard from desktop and insert into the opz.</li><li>Connect RJ45 ethernet to opz.</li><li>Connect 5V USB power to boot opz.</li><li>Monitor DHCP server to determine IP address supplied to opz.</li><li>SSH as root to IP address.</li></ul>
+
+
+
+<h2 class="wp-block-heading">Post boot config</h2>
+
+
+
+<ul class="wp-block-list"><li>Disable firstboot.  If you connect to opz via serial connection, you&#8217;ll see the console is waiting for you to create a user and/or set root password.  The initial-setup service is responsible for this.<pre>systemctl disable initial-setup</pre></li><li>Reboot</li></ul>
+
+
+
+<p>Your Orange Pi Zero is now running Fedora 29 (Minimal), and can only be accessed by IP address as root with SSH key.</p>
+
+
+
+<p></p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2019/01/installing-fedora-29-on-orange-pi-zero/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Making a Word Cloud of your #TaskWarrior Tags</title>
+		<link>/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/</link>
+					<comments>/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sat, 10 Nov 2018 14:00:21 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cli]]></category>
+		<category><![CDATA[shell]]></category>
+		<category><![CDATA[taskwarrior]]></category>
+		<category><![CDATA[wordcloud]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=794</guid>
+
+					<description><![CDATA[Here is a quick way to generate a word cloud of your Task Warrior tags: [mjs]$ ( echo graph d{ ; task tags &#124; tail -n +4 &#124; awk '{print "\""$1"\"[fontsize="10*sqrt($2)",shape=none];"}'; echo } ) &#124; fdp -Tpng &#62; tag-cloud.png Note that &#8220;fdp&#8221; comes from the &#8220;graphviz&#8221; package, so make sure that is installed first.]]></description>
+										<content:encoded><![CDATA[<p>Here is a quick way to generate a word cloud of your Task Warrior tags:</p>
+<pre>[mjs]$ ( echo graph d{ ; task tags | tail -n +4 | awk '{print "\""$1"\"[fontsize="10*sqrt($2)",shape=none];"}'; echo } ) | fdp -Tpng &gt; tag-cloud.png</pre>
+<p>Note that &#8220;fdp&#8221; comes from the &#8220;graphviz&#8221; package, so make sure that is installed first.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Fedora 29 Beta on GPD Pocket 2</title>
+		<link>/2018/09/fedora-29-beta-on-gpd-pocket-2/</link>
+					<comments>/2018/09/fedora-29-beta-on-gpd-pocket-2/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 26 Sep 2018 23:47:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=791</guid>
+
+					<description><![CDATA[#fedora #gpd #pocket2 #linux Of course, immediately after I get Fedora 28 running on my new Pocket 2, what happens ?  Fedora 29 Beta is released!  So, here are my notes on getting Fedora 29 Beta running on the GPD Pocket 2. Installing Fedora 29 Beta Obtain the x86_64 Live ISO and write it to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>#fedora #gpd #pocket2 #linux</p>
+<p>Of course, immediately after <a href="http://mjs.fyi/2018/09/25/fedora-28-on-the-gpd-pocket-2/">I get Fedora 28 running on my new Pocket 2</a>, what happens ?  <a href="https://getfedora.org/en/workstation/prerelease/">Fedora 29 Beta is released</a>!  So, here are my notes on getting Fedora 29 Beta running on the GPD Pocket 2.</p>
+<h2>Installing Fedora 29 Beta</h2>
+<ol>
+<li>Obtain the x86_64 Live ISO and write it to a USB drive</li>
+<li>Boot from the USB drive using F12 to access the boot menu</li>
+<li>The desktop will begin rotated sideways (just like with Fedora 28), but we can fix this.  Bring up Display Settings and do the following:
+<ul>
+<li>Select &#8220;Orientation&#8221; = &#8220;Portrait Left&#8221;, noting this gives an error</li>
+<li>Select &#8220;Resolution&#8221; = 864&#215;1152 (the lowest resolution)</li>
+<li>Select original resolution of 1200&#215;1920 again. This clears the error and activates the &#8220;Apply&#8221; button.</li>
+<li>Click Apply and display should be properly oriented.</li>
+</ul>
+</li>
+<li>Perform the Fedora installation like normal</li>
+<li>Reboot</li>
+<li>The screen orientation will be sideways again.</li>
+<li>Run through initial setup (sideways) to create user account</li>
+<li>Once logged in as your new user, use the steps above in item 3 to correct the screen orientation</li>
+<li>If you find the font and other UI elements to be too small on this 7&#8243; screen,. then you&#8217;ll want to enable fractional scaling. Enter the following at the terminal:
+<pre>gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"</pre>
+</li>
+<li>Log out, log in, and enter the Display Settings again. You should now see an option for &#8220;Scale&#8221;. I find 150% to be the smallest comfortable on this small screen.</li>
+<li>If you want bigger, edit &#8220;~/.config/monitors.xml&#8221; and set the scale to 2
+<pre>&lt;scale&gt;2&lt;/scale&gt;</pre>
+</li>
+<li>The font can also be scaled up by installing gnome-tweaks, running &#8220;Tweaks&#8221; and changing &#8220;Fonts-&gt;Scaling Factor&#8221;</li>
+<li>Open a terminal, and copy the monitor configuration so that the GDM login screen also has proper orientation and scaling:
+<pre>sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/</pre>
+</li>
+<li>We can correct the orientation of the text console during boot by modifying a kernel parameter in Grub.
+<ul>
+<li>Edit /etc/default/grub to modify the GRUB_CMDLINE_LINUX variable, appending &#8220;fbcon=rotate:1&#8221; to the end</li>
+<li>grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg</li>
+</ul>
+</li>
+<li>Reboot</li>
+</ol>
+<h2></h2>
+<h2>What&#8217;s left ?</h2>
+<ul>
+<li>The plymouth screens during boot are still sideways, including the LUKS password prompt.  There appears to be upstream patches to correct this.</li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/09/fedora-29-beta-on-gpd-pocket-2/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Fedora 28 on the GPD Pocket 2</title>
+		<link>/2018/09/fedora-28-on-the-gpd-pocket-2/</link>
+					<comments>/2018/09/fedora-28-on-the-gpd-pocket-2/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Tue, 25 Sep 2018 15:42:41 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=778</guid>
+
+					<description><![CDATA[Update 2019-09-29 10:00 ET: Post initially stated &#8220;F7&#8221; to enter BIOS.  Corrected to state &#8220;DEL&#8221; is used to enter BIOS. Yesterday my GPD Pocket 2 arrived.  So what&#8217;s the first thing I had to do with it?  Well, install Fedora 28, of course!  So far, it runs great (I&#8217;m typing this blog post on it [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><strong>Update 2019-09-29 10:00 ET: </strong>Post initially stated &#8220;F7&#8221; to enter BIOS.  Corrected to state &#8220;DEL&#8221; is used to enter BIOS.</p>
+<p>Yesterday my <a href="https://www.indiegogo.com/projects/gpd-pocket2-7-0-umpc-laptop-win-10-os#/">GPD Pocket 2</a> arrived.  So what&#8217;s the first thing I had to do with it?  Well, install Fedora 28, of course!  So far, it runs great (I&#8217;m typing this blog post on it right now!), but there were a few bugs to work through.</p>
+<p><img fetchpriority="high" decoding="async" class=" size-medium wp-image-780 aligncenter" src="/wp-content/uploads/2018/09/img_20180924_214702.jpg?w=450" alt="img_20180924_214702" width="225" height="300" />This 7&#8243; UMPC comes with Windows 10 by default, but that was pretty easy to fix.  I grabbed the standard x86_64 Fedora Workstation ISO from https://fedoraproject.org , and wrote it to a USB drive.  When booting the device, F12 (Fn+&#8217;=&#8217;) will show you a boot menu, and you can boot off the USB. (DEL will get you into the BIOS settings).</p>
+<p>Once booting, you will immediately notice everything is sideways &#8211; the text boot, the GDM login, and the desktop.  Unless you are comfortable working sideways, we&#8217;ll need a temporary fix for the install, and a better fix once installed.</p>
+<p><img decoding="async" class=" size-medium wp-image-781 aligncenter" src="/wp-content/uploads/2018/09/img_20180924_212549.jpg?w=600" alt="img_20180924_212549" width="300" height="225" /></p>
+<p>Using the Live Desktop, open a terminal (yes, we are still sideways) and enter the following to bind a hotkey to the &#8220;Rotate Screen&#8221; Wayland action:</p>
+<pre>$&gt; gsettings set org.gnome.mutter.keybindings rotate-monitor "['XF86RotateWindows', '&lt;Control&gt;F8']"</pre>
+<p>Now you can press CTL-F8 (don&#8217;t forget to include Fn) to cycle through screen angles until things look right (I had to press 7 times).</p>
+<p>Now, go ahead and install Fedora, everything should be normal &#8211; until your first boot, when everything is sideways again.</p>
+<p>Unfortunately, the &#8220;Orientation&#8221; option in the Display Settings doesn&#8217;t appear to work.  Or at least it didn&#8217;t until I tried a very low resolution, and then toggled back to the higher resolution.  To simplify this for anyone reading this blog, just create a file named ~/.config/monitors.xml, and add the following content:</p>
+<pre>&lt;monitors version="2"&gt;
+&lt;configuration&gt;
+&lt;logicalmonitor&gt;
+&lt;x&gt;0&lt;/x&gt;
+&lt;y&gt;0&lt;/y&gt;
+&lt;scale&gt;1&lt;/scale&gt;
+&lt;primary&gt;yes&lt;/primary&gt;
+&lt;transform&gt;
+&lt;rotation&gt;right&lt;/rotation&gt;
+&lt;flipped&gt;no&lt;/flipped&gt;
+&lt;/transform&gt;
+&lt;monitor&gt;
+&lt;monitorspec&gt;
+&lt;connector&gt;eDP-1&lt;/connector&gt;
+&lt;vendor&gt;unknown&lt;/vendor&gt;
+&lt;product&gt;unknown&lt;/product&gt;
+&lt;serial&gt;unknown&lt;/serial&gt;
+&lt;/monitorspec&gt;
+&lt;mode&gt;
+&lt;width&gt;1200&lt;/width&gt;
+&lt;height&gt;1920&lt;/height&gt;
+&lt;rate&gt;60.022136688232422&lt;/rate&gt;
+&lt;/mode&gt;
+&lt;/monitor&gt;
+&lt;/logicalmonitor&gt;
+&lt;/configuration&gt;
+&lt;/monitors&gt;</pre>
+<p>Log out, log in, and your desktop should now be the proper orientation.  If you want to correct the GDM login too (hey, maybe you like it sideways!), simple copy the monitors.xml file into /var/lib/gdm/.config/ and restart GDM (or just reboot).</p>
+<p>You will probably also want to use the Gnome Tweak Tool to change the font &#8220;scaling factor&#8221;, under the &#8220;Fonts&#8221; section.</p>
+<p><img decoding="async" class="alignnone size-large wp-image-782" src="/wp-content/uploads/2018/09/screenshot-from-2018-09-25-11-41-42.png?w=2048" alt="Screenshot from 2018-09-25 11-41-42" width="1024" height="611" srcset="/wp-content/uploads/2018/09/screenshot-from-2018-09-25-11-41-42.png 1920w, /wp-content/uploads/2018/09/screenshot-from-2018-09-25-11-41-42-300x179.png 300w, /wp-content/uploads/2018/09/screenshot-from-2018-09-25-11-41-42-1024x611.png 1024w, /wp-content/uploads/2018/09/screenshot-from-2018-09-25-11-41-42-768x458.png 768w, /wp-content/uploads/2018/09/screenshot-from-2018-09-25-11-41-42-1536x916.png 1536w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<p>I have not yet figured out how to properly orient the textual boot console &#8211; and this includes the Plymouth LUKS login.  If anyone has any ideas on that, please leave a comment below.</p>
+<p>But aside from that one remaining annoyance, so far this looks like it&#8217;ll be a great little Fedora device!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/09/fedora-28-on-the-gpd-pocket-2/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Reduced footprint vs minimal footprint</title>
+		<link>/2018/08/reduced-footprint-vs-minimal-footprint/</link>
+					<comments>/2018/08/reduced-footprint-vs-minimal-footprint/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Fri, 31 Aug 2018 01:06:26 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=775</guid>
+
+					<description><![CDATA[I read quite often about how a minimal operating system, with all things unnecessary for its expected functionality removed, is &#8220;more secure&#8221; because of the minimal attack surface.  While there is definitely something to be said for reducing the attack surface, having a minimal OS is not necessarily a good security practice. &#8220;But Matt, if I [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I read quite often about how a minimal operating system, with all things unnecessary for its expected functionality removed, is &#8220;more secure&#8221; because of the minimal attack surface.  While there is definitely something to be said for reducing the attack surface, having a <em>minimal</em> OS is not necessarily a good security practice.</p>
+<p>&#8220;But Matt, if I don&#8217;t need something, then I should remove it so that an attacker can&#8217;t attack it, right?&#8221;  Maybe &#8212; it depends on how we define &#8220;need&#8221;.</p>
+<p>If you are running a web server, do you <em>need</em> a mail server, or a print server, or a FTP server also running on that same system?  Probably not.  Remove those extraneous services from your deployment.</p>
+<p>If you are running a web server, do you <em>need</em> a firewall ?  Well, the firewall doesn&#8217;t help you deliver web pages.  But I think many will accept that removing the firewall for the sake of minimality would be silly.  This is the other end of the spectrum, but helps illustrate the point that pure minimalism can actually negatively impact the security posture.</p>
+<p>If you are running a web server, do you <em>need</em> a file system integrity monitor (FSIM) or other secondary defenses?  This is where we start getting into a fuzzy area.  I would argue that you should keep security tooling like an FSIM on your server.  The minimal footprint may help reduce the attack surface, but it will never be zero.  An attacker may still find a way in.  And when they do, you need additional layers (like FSIMs, EP, AV, MAC/SELinux, etc) to mitigate their impact and determine what they have done.  Don&#8217;t remove these tools from your OS deployment simply because you have a goal of minimally-sized functioning server.</p>
+<p>If you are running a web server, do you need tcpdump, performance co-pilot, puppet, zabbix agent, splunk agent, or other operational tooling?  For normal day to day activity, you should never need these tools.  But occasionally, something will break, or something needs to be changed.  You will need tools that let you troubleshoot and fix, or that have been monitoring and collecting data for a period of time.  And if those tools aren&#8217;t already installed, you may not be able to install them during a problem.  Have you ever tried troubleshooting a network problem on a system where you can&#8217;t run &#8220;yum install tcpdump&#8221; because of the network problem?  While these tools are not security tools specifically, these are tools that are operationally necessary.  Consider keeping these tools, at least the critical subset of them, in your OS deployment.</p>
+<p>If you are running a web server, do you need perl, python, ruby, and other scripting languages installed?  This requires deeper digging &#8211; do any of the tools that you&#8217;ve identified from the above scenarios require those languages?  Were they written in perl, python, or ruby, or require those languages for extra functionality ?  Tracing these dependencies can lead to a list of software that you may not have initially considered required, but due to choices of tools are not a requirement.  Assess this carefully, balancing your choice of tools against their requirements, but recognize that you may have to include some of these scripting languages, just to avoid creating security and operational impacts as described earlier.</p>
+<p>So remember &#8211; your security posture cannot simply be measured by how small the OS deployment is.  Removing security tools from your OS can negatively impact your security posture, and removing operational tools from your OS can negatively impact your operational risk.  Before you start taking a scalpel to your OS with a goal of carving down to the smallest possible size, make sure you take into account your security and operational considerations, and the dependencies they pull in.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/08/reduced-footprint-vs-minimal-footprint/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Using Ansible with OpenWRT</title>
+		<link>/2018/04/using-ansible-with-openwrt/</link>
+					<comments>/2018/04/using-ansible-with-openwrt/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Tue, 17 Apr 2018 23:34:01 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=772</guid>
+
+					<description><![CDATA[I&#8217;ve recently been playing with OpenWRT, and decided to see if I could use Ansible to manage it.  From a basic install of OpenWRT, here is what needs to be done to be able to manage with Ansible: Use the WebUI to upload your SSH public key Install a few packages, either via the WebUI [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve recently been playing with OpenWRT, and decided to see if I could use Ansible to manage it.  From a basic install of OpenWRT, here is what needs to be done to be able to manage with Ansible:</p>
+<ul>
+<li>Use the WebUI to upload your SSH public key</li>
+<li>Install a few packages, either via the WebUI or from the CLI with &#8220;opkg install&#8221;
+<ul>
+<li>python-light</li>
+<li>python-logging</li>
+<li>python-crypto</li>
+</ul>
+</li>
+<li>On your Ansible control node, specify the following in your ansible.cfg (dropbear does not include the sftp subsystem):
+<pre>[ssh_connection]
+scp_if_ssh = True</pre>
+</li>
+<li>Give it a test (output trimmed below for brevity):
+<pre><strong>$ ansible -msetup -i root@192.168.1.1, all</strong>
+root@192.168.1.1 | SUCCESS =&gt; {
+"ansible_facts": {
+  ...
+  "ansible_architecture": "mips",
+  ...
+  "ansible_distribution": "LEDE",
+  "ansible_distribution_version": "17.01.4, Reboot",
+  ...
+  "ansible_os_family": "LEDE",
+  "ansible_pkg_mgr": "opkg",
+  ...
+  }
+}</pre>
+</li>
+</ul>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/04/using-ansible-with-openwrt/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>A personal mobile LAN</title>
+		<link>/2018/04/a-personal-mobile-lan/</link>
+					<comments>/2018/04/a-personal-mobile-lan/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 11 Apr 2018 02:37:06 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=763</guid>
+
+					<description><![CDATA[I&#8217;ve found myself with a lot of nerve-wracking thumb-twiddling time in the hospital over the past few weeks. So, needing to secure my internet access across an open public WiFi and needing a project to distract myself a bit, I decided I wanted a device or collection of devices that perform the following roles: &#8211; [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve found myself with a lot of <a href="https://ambersway.com">nerve-wracking thumb-twiddling time in the hospital over the past few weeks</a>. So, needing to secure my internet access across an open public WiFi and needing a project to distract myself a bit, I decided I wanted a device or collection of devices that perform the following roles:</p>
+<p>&#8211; a WAP that I can use to connect my laptop, my tablet, my family&#8217;s Android tablets, my phone and my ChromeCast or Roku.</p>
+<p>&#8211; selectable uplink via a WiFi repeater to an existing WiFi network, 3G/4G, or Ethernet</p>
+<p>&#8211; a firewall between my devices and the uplink</p>
+<p>&#8211; a NAS/DLNA server with enough storage to hold several full-length movies, streamable to the family&#8217;s Android tablets</p>
+<p>&#8211; site-to-site VPN to my home network</p>
+<p>And, I want this all to be portable, and ideally have some battery capability for travel.</p>
+<p>This isn&#8217;t too much to ask, is it? Incredibly enough, I&#8217;ve got this working, quite well.</p>
+<p><img loading="lazy" decoding="async" class="wp-image-768 alignnone size-full" src="/wp-content/uploads/2018/04/img_20180410_2231253423411089894915836.jpg" width="1932" height="1323" srcset="/wp-content/uploads/2018/04/img_20180410_2231253423411089894915836.jpg 1932w, /wp-content/uploads/2018/04/img_20180410_2231253423411089894915836-300x205.jpg 300w, /wp-content/uploads/2018/04/img_20180410_2231253423411089894915836-1024x701.jpg 1024w, /wp-content/uploads/2018/04/img_20180410_2231253423411089894915836-768x526.jpg 768w, /wp-content/uploads/2018/04/img_20180410_2231253423411089894915836-1536x1052.jpg 1536w" sizes="(max-width: 1932px) 100vw, 1932px" /></p>
+<p>I found the <a href="https://www.gl-inet.com/mifi/">GL-MiFi from GL.iNet</a>, with the AT&amp;T 4G module (<a href="https://www.amazon.com/dp/B0744C9943">Amazon</a>). This device runs <a href="https://openwrt.org/">OpenWRT</a> (a small Linux distro optimized for embedded devices, especially good for small personal/home routers). This provides a great WAP, with a solid firewall (iptables), all manageable from the rather nice OpenWRT Luci GUI, or from the simplified GL.iNet web UI, or via SSH (yes, I&#8217;ll figure out some nifty Ansible sometime in the future). And, this device packs a 5000mAH battery for several hours of disconnected use.</p>
+<p>I added a data-only SIM from Google&#8217;s <a href="https://fi.google.com">Project Fi</a>. I have already moved my cell service to Fi, so this additional data-only SIM cost <i><b>nothing</b></i>, and just consumes from my existing data package. Since the MiFi takes micro SIM, and Project Fi ships a nano SIM, I also needed to throw in a SIM card adapter (<a href="https://www.amazon.com/dp/B00R25GJJW">Amazon</a>). So now I have uplink via Ethernet (the MiFi has both a WAN and LAN port), WiFi (the MiFi can act as a wireless repeater), or via 3G/4G.</p>
+<p>I&#8217;ve also added <i>two</i> storage devices &#8211; a 128GB SanDisk Micro SD Card <a href="https://www.amazon.com/dp/B073JYC4XM">Amazon</a>) and a 128GB SanDisk USB 3.0 drive (<a href="https://www.amazon.com/dp/B00YFI1EBC">Amazon</a>). Why two? Well, I happened to have both already on hand, and the MiFi provides both a Micro SD slot and a USB 2.0 port, so why not try both? Once formatted ext4, they immediately show up in the web UI, and can be accessed via SMB/CIFS. And, by adding the minidlna package in the OpenWRT software management interface, VLC on the Android tablets immediately discovers and can stream any video or audio content on the storage!!</p>
+<p>The only remaining requirement is the site-to-site VPN. I haven&#8217;t actually figured this out yet, but &#8211; given that I&#8217;m running a Ubiquiti USG in front of my home network, it looks like I&#8217;ll be able to accomplish this either via L2TP/IPSec or via OpenVPN. I&#8217;ll make sure to write that up once I figure it out.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/04/a-personal-mobile-lan/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Ansible quirks: Delegating a task with a unique remote user</title>
+		<link>/2018/03/ansible-quirks-delegating-a-task-with-a-unique-remote-user/</link>
+					<comments>/2018/03/ansible-quirks-delegating-a-task-with-a-unique-remote-user/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Tue, 20 Mar 2018 14:32:01 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=760</guid>
+
+					<description><![CDATA[I&#8217;ve spent a few hours banging my head against something that &#8211; in retrospect &#8211; is pretty obvious: &#8220;delegate_to&#8221; does not respect the &#8220;ansible_user&#8221; inventory variable. Challenge delegate_to is used to execute a task on a host other than the one targeted for playbook execution.  Compare these three tasks: - command: echo Hello World - command: [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve spent a few hours banging my head against something that &#8211; in retrospect &#8211; is pretty obvious: &#8220;delegate_to&#8221; does not respect the &#8220;ansible_user&#8221; inventory variable.</p>
+<h1>Challenge</h1>
+<p><a href="http://docs.ansible.com/ansible/latest/playbooks_delegation.html">delegate_to</a> is used to execute a task on a host other than the one targeted for playbook execution.  Compare these three tasks:</p>
+<pre>- command: echo Hello World
+
+- command: echo Hello World
+  delegate_to: localhost
+
+- command: echo Hello World
+  delegate_to: random.example.com</pre>
+<p>The first task will execute &#8220;echo Hello World&#8221; on the system in the inventory that this playbook is being called for.</p>
+<p>The second task will simply execute the &#8216;echo&#8217; on the system running the ansible playbook.</p>
+<p>The third task will connect to &#8220;random.example.com&#8221; to execute the echo.  But, notably, &#8220;random.example.com&#8221; doesn&#8217;t even need to be in your inventory, and so the connection to &#8220;random.example.com&#8221; does not use any inventory variables, such as &#8220;ansible_user&#8221;.</p>
+<p>&#8220;delegate_to&#8221; will respect the global &#8220;remote_user&#8221;, but I often use different non-root user accounts for Ansible connections.  So, if &#8220;delegate_to&#8221; doesn&#8217;t respect &#8220;ansible_user&#8221;, and if I can&#8217;t set a useful global &#8220;remote_user&#8221;, what can I do?</p>
+<h1>Solution</h1>
+<p>Once I figured this out, it&#8217;s pretty obvious in hindsight:</p>
+<pre>- command: echo Hello World
+  delegate_to: <strong>my_remote_user@</strong>random.example.com</pre>
+<p>&#8220;delegate_to&#8221; allows the user to be part of the connection string.  In this example, I will connect to &#8216;random.example.com&#8217; as the &#8216;my_remote_user&#8217; id.  This could also be replaced with an inventory variable for the host the playbook is run for.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/03/ansible-quirks-delegating-a-task-with-a-unique-remote-user/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Four practical steps to improve your Security Lifecycle Program</title>
+		<link>/2018/01/four-practical-steps-to-improve-your-security-lifecycle-program/</link>
+					<comments>/2018/01/four-practical-steps-to-improve-your-security-lifecycle-program/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Tue, 23 Jan 2018 02:08:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[information technology]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[red hat]]></category>
+		<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=742</guid>
+
+					<description><![CDATA[<p>The recent high-profile “Meltdown” and “Spectre” security event did more than expose newly-discovered problems in processor architectures dating back decades. It also exposed gaps in the Security Lifecycle Program for many organizations, possibly even in your own.</p>
+<p>The details of this security event are already well-documented (see the original security notification in Red Hat’s Portal or this 3-minute video providing a high-level overview). So, what can your IT organization do to be better prepared for the next security event? Here are four practical actions you can take now to improve your Security Lifecycle Program.</p>
+<p><a href="https://www.linkedin.com/pulse/four-practical-steps-improve-your-security-lifecycle-program-smith/">Read the rest of "Four practical steps to improve your Security Lifecycle Program"</a></p>]]></description>
+										<content:encoded><![CDATA[<p>The recent high-profile “Meltdown” and “Spectre” security event did more than expose newly-discovered problems in processor architectures dating back decades. It also exposed gaps in the Security Lifecycle Program for many organizations, possibly even in your own.</p>
+<p><span id="more-742"></span></p>
+<p>The details of this security event are already well-documented (see the original security notification in Red Hat’s Portal or this 3-minute video providing a high-level overview). So, what can your IT organization do to be better prepared for the next security event? Here are four practical actions you can take now to improve your Security Lifecycle Program.</p>
+<p><a href="https://www.linkedin.com/pulse/four-practical-steps-improve-your-security-lifecycle-program-smith/">Read the rest of &#8220;Four practical steps to improve your Security Lifecycle Program&#8221;</a></p>
+<p> </p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/01/four-practical-steps-to-improve-your-security-lifecycle-program/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>How to approach KPTI remediation</title>
+		<link>/2018/01/how-to-approach-kpti-remediation/</link>
+					<comments>/2018/01/how-to-approach-kpti-remediation/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Thu, 04 Jan 2018 19:21:03 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://mjs.fyi/?p=734</guid>
+
+					<description><![CDATA[If you are in I.T., you&#8217;ve heard about Meltdown and Spectre by now.  So &#8211; what are you going to do about it? Don&#8217;t panic, follow your existing High Priority Security Patching processes. Start assessing, in your test environment, the performance impact of patches against your performance-sensitive workloads, especially those with heavy disk I/O or [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are in I.T., you&#8217;ve <a href="https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html">heard about</a> <a href="https://access.redhat.com/security/vulnerabilities/speculativeexecution">Meltdown and Spectre</a> by now.  So &#8211; what are you going to do about it?</p>
+<ol>
+<li>Don&#8217;t panic, follow your existing High Priority Security Patching processes.</li>
+<li>Start assessing, in your test environment, the performance impact of patches against your performance-sensitive workloads, especially those with heavy disk I/O or network I/O. (Red Hat customers &#8211; check out <a href="https://access.redhat.com/node/3307751">our assessment</a> of performance impacts using our patches).  Make sure you are aware of the new &#8220;<a href="https://lwn.net/Articles/741878/">nopti</a>&#8221; kernel parameter, but be *very* judicious in it&#8217;s use.</li>
+<li>Prioritize multi-user systems, especially if any potential users are not trusted.</li>
+<li>Prioritize patching of shared compute resources, such as public or private clouds, especially where the host is carrying workloads (applications, VMs) from multiple security or compliance domains.</li>
+<li>This is not (yet) known to be remotely exploitable, so systems that are not sharing resources and are not accessed by multiple users can have a slightly lesser priority.  Given the performance impact referenced in #2 above, and given that performance-sensitive workloads are often run isolated from other workloads, balance an appropriate amount of time in testing the impact of the patches to your workload.</li>
+</ol>
+<p>&nbsp;</p>
+<p>So, don&#8217;t panic, follow process, understand the impact to your environment &#8211; just like you should in any security event.</p>
+<p>&nbsp;</p>
+<ul>
+<li><a href="https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html">https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html</a></li>
+<li><a href="https://access.redhat.com/security/vulnerabilities/speculativeexecution">https://access.redhat.com/security/vulnerabilities/speculativeexecution</a></li>
+<li><a href="https://access.redhat.com/node/3307751">https://access.redhat.com/node/3307751</a></li>
+<li><a href="https://lwn.net/Articles/741878/">https://lwn.net/Articles/741878/</a></li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2018/01/how-to-approach-kpti-remediation/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

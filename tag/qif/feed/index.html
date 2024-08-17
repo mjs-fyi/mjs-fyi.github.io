@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>qif &#8211; mjs.fyi</title>
+	<atom:link href="/tag/qif/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Tue, 31 Dec 2013 23:14:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>qif-util</title>
+		<link>/2013/12/qif-util/</link>
+					<comments>/2013/12/qif-util/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Tue, 31 Dec 2013 23:14:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[qif]]></category>
+		<guid isPermaLink="false">https://forsetti.wordpress.com/?p=396</guid>
+
+					<description><![CDATA[I&#8217;ve just posted the first (and likely only) release of qif-util . qif-utils is a very small set of small tools to manipulate QIF files, written sloppily in a very small amount of time. Having used Gnucash very happily for a decade, I&#8217;ve always been irritated by the manual method I needed to perform to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve just posted the first (and likely only) <a href="https://github.com/forsetti/qif-util">release of qif-util</a> .</p>
+<p>qif-utils is a very small set of small tools to manipulate QIF files, written sloppily in a very small amount of time.</p>
+<p>Having used <a href="http://gnucash.org">Gnucash</a> very happily for a decade, I&#8217;ve always been irritated by the manual method I needed to perform to map transactions to accounts.  <a href="https://github.com/forsetti/qif-util">qif-util</a> was written to automate some of that process, and has been posted in case anyone else can benefit from it.  However, do not rely on this code for anything significant &#8212; only about 20 hours was put into development, most being spent tweaking the output process to give me something usable.</p>
+<p><a href="https://github.com/forsetti/qif-util">qif-util</a> currently provides 3 command line tools, written in Python &#8211; see the <a href="https://github.com/forsetti/qif-util/blob/master/README">README</a> for more information.</p>
+<ul>
+<li>qif-augment inserts account name and type, and an initial transaction representing the opening balance of an account</li>
+<li>qif-csv converts a QIF file into CSV (with columns hardcoded into the code)</li>
+<li>qif-rules accepts a file of rules describing how to assign a category (&#8220;L&#8221; QIF code) to QIF transactions, based on matching fields in the transaction.  See the <a href="https://github.com/forsetti/qif-util/blob/master/doc/test.rules">sample rules file</a> for more information.</li>
+</ul>
+<p>Why post such a trivial and unsupported set of tools?  Well, we are entering tax season in the U.S., QIF is still the most common financial export format out there, and I work for the <a href="http://redhat.com">best open source company</a> out there and fully believe in sharing with the community.  So, if you find value out of these, please drop me a comment here.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2013/12/qif-util/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

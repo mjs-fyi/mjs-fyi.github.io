@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Using Google Chromecast from Fedora 19 | mjs.fyi</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="/xmlrpc.php">
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com">
+<link rel="alternate" type="application/rss+xml" title="mjs.fyi &raquo; Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="mjs.fyi &raquo; Comments Feed" href="/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="mjs.fyi &raquo; Using Google Chromecast from Fedora 19 Comments Feed" href="/2013/08/using-google-chromecast-from-fedora-19/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="penscratch-style-css" href="/wp-content/themes/penscratch/style.css?ver=6.6.1" type="text/css" media="all">
+<link rel="stylesheet" id="penscratch-fonts-css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="/wp-content/themes/penscratch/genericons/genericons.css?ver=3.0.3" type="text/css" media="all">
+<link rel="https://api.w.org/" href="/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/352"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.1">
+<link rel="canonical" href="/2013/08/using-google-chromecast-from-fedora-19/">
+<link rel="shortlink" href="/?p=352">
+</head>
+
+<body class="post-template-default single single-post postid-352 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+						<h1 class="site-title"><a href="/" rel="home">mjs.fyi</a></h1>
+			<h2 class="site-description">Technology, Cyber Security, Digital Transformation, and Beer</h2>
+		</div>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<div class="menu"><ul>
+<li><a href="/">Home</a></li><li class="page_item page-item-525"><a href="/about-me/">About Me</a></li>
+<li class="page_item page-item-740"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+					<a href="/" rel="home">
+				<img class="custom-header" src="/wp-content/uploads/2024/08/cropped-cropped-img_20160731_111223-e1537981433757.jpg" width="937" height="300" alt="">
+			</a>
+		
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-352" class="post-352 post type-post status-publish format-standard hentry category-uncategorized tag-chromecast tag-linux">
+	<header class="entry-header">
+		<h1 class="entry-title">Using Google Chromecast from Fedora 19</h1>
+		<div class="entry-meta">
+						<span class="posted-on"><a href="/2013/08/using-google-chromecast-from-fedora-19/" rel="bookmark"><time class="entry-date published" datetime="2013-08-25T17:27:24-04:00">2013-08-25</time></a></span><span class="byline"><span class="sep"> ~ </span><span class="author vcard"><a class="url fn n" href="/author/forsetti/">Matt Smith</a></span></span>					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Using Chrome&rsquo;s <a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en">Google Cast</a>&nbsp;with the <a href="http://google.com/chromecast">Google Chromecast</a> from an IPTables-enabled Linux distribution can be a bit tricky.</p>
+<p>The extension starts by issuing an SSDP request from a local ephemeral UDP port to&nbsp;239.255.255.250 port 1900. &nbsp;The Chromecast will respond from its IP and another ephemeral UDP port, back to your source UDP port.</p>
+<p>IPTables cannot track this simply as &ldquo;RELATED&rdquo;, given that the target of the first packet is the multicast address, while the source of the response packet is the Chromecast&rsquo;s IP. &nbsp;And unfortunately, there is no SSDP conntrack module (at least, not that I am aware of, at the time of writing this post).</p>
+<p>Therefore, the best we can do for now is to open the ephemeral port range on the client machine. &nbsp;The list of ephemeral ports, as defined by your Linux machine, can be found by:</p>
+<pre>cat /proc/sys/net/ipv4/ip_local_port_range</pre>
+<p>Fedora19 uses firewalld, so you will want to use the following:</p>
+<pre>firewall-cmd --permanent --add-port=32768-61000/udp
+firewall-cmd --reload</pre>
+<p>Given the wide range of ports being opened, you may want to restrict access to just your local network. Consider using Network Manager to associate your NIC (eth0,wlan0, whatever) with your &ldquo;home&rdquo; zone, and use the following command instead of the above:</p>
+<pre>firewall-cmd --permanent --zone=home --add-port=32768-61000/udp</pre>
+<p>On non-firewalld systems, use this IPTables one-liner (modifying 192.168.0.0/24 as appropriate for your home network):</p>
+<pre>iptables -A INPUT -s 192.168.0.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT</pre>
+<p>Launch Chrome, click the Cast extensions, and it should now &ldquo;Just Work&rdquo;. &nbsp;And if it doesn&rsquo;t &hellip;. please let me know in the comments on this post.</p>
+<p><strong>UPDATE 20150803 &ndash; A few&nbsp;additional&nbsp;notes&nbsp;inspired by the great&nbsp;comment&nbsp;from&nbsp;<a id="commentauthor-1537" href="http://gravatar.com/mauriciograciag">mauriciograciag</a>:</strong></p>
+<p>Note&nbsp;the use of the &ldquo;&ndash;zone=home&rdquo; parameter in the second&nbsp;firewall-cmd example above. &nbsp;This <em>can</em> be a&nbsp;more secure option, but does require ensuring that&nbsp;you have a&nbsp;zone named &ldquo;home&rdquo;, and that Network Manager associates your active network profile&nbsp;with&nbsp;this zone. &nbsp;If&nbsp;the Network Manager configuration is in place, I do recommend using that option for those working from&nbsp;systems (laptops) that might also find themselves on alternate networks. &nbsp;However, for&nbsp;desktops that will not be connected to other networks, use of a zone&nbsp;will likely&nbsp;not add any tangible&nbsp;benefits.</p>
+<p>If you&nbsp;set these rules via firewall-cmd and wish to revert them, the following should do the trick:</p>
+<pre>firewall-cmd &ndash;permanent &ndash;remove-port=32768-61000/udp
+firewall-cmd &ndash;permanent &ndash;zone=home &ndash;remove-port=32768-61000/udp
+firewall-cmd &ndash;reload</pre>
+<p>And lastly,&nbsp;note that the&nbsp;iptables rule&nbsp;must be run as root. Typically, this will be done by updating the iptables startup configuration for your favorite&nbsp;Linux distribution (e.g., you may need to add that line to /etc/iptables); but you might also want to run this a single time,&nbsp;non-persistently, from the command line. &nbsp;If you have&nbsp;configured sudo appropriately on your Linux systems, preceding&nbsp;the iptables command with &ldquo;sudo&rdquo;&nbsp;would work as follows:</p>
+<pre>sudo iptables -A INPUT -s 192.168.0.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT</pre>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+				<span class="cat-links">
+			Posted in <a href="/category/uncategorized/" rel="category tag">Uncategorized</a>		</span>
+						<span class="tags-links">
+			<a href="/tag/chromecast/" rel="tag">chromecast</a><a href="/tag/linux/" rel="tag">linux</a>		</span>
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+				<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="/2013/04/349/" rel="prev"><span class="meta-nav">&lt; Previous</span> An ode to 130-064-785</a></div><div class="nav-next"><a href="/2013/11/pandora-chromecast-awesome/" rel="next"><span class="meta-nav">Next &gt;</span> Pandora + Chromecast = Awesome!</a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			35 thoughts on &ldquo;<span>Using Google Chromecast from Fedora 19</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-33" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-33" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://2.gravatar.com/avatar/eed11c338bb2148c07cf9aa9a5b43218?s=60&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/eed11c338bb2148c07cf9aa9a5b43218?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" decoding="async">						<b class="fn"><a href="https://www.facebook.com/brian.hartman2" class="url" rel="ugc external nofollow">Brian Hartman</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-33"><time datetime="2013-09-03T18:56:56-04:00">2013-09-03 at 18:56</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I haven&rsquo;t been able to get this to work for me.  It still can&rsquo;t see the Chromecast.  I&rsquo;ve got Fedora 19 and I can see the Chromecast from my Galaxy S3 and from my Kindle Fire HD.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=33#respond" data-commentid="33" data-postid="352" data-belowelement="div-comment-33" data-respondelement="respond" data-replyto="Reply to Brian Hartman" aria-label="Reply to Brian Hartman">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-36" class="comment odd alt depth-2">
+			<article id="div-comment-36" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-36"><time datetime="2013-09-03T22:18:29-04:00">2013-09-03 at 22:18</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Another commenter caught one additional necessary step &ndash; please see if &ldquo;firewall-cmd &ndash;reload&rdquo; helps.  If not, just as a sanity check, please try (temporarily) disabling your firewall and trying the Cast extension again.  If that doesn&rsquo;t work, then the issue lies somewhere other than your firewall.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=36#respond" data-commentid="36" data-postid="352" data-belowelement="div-comment-36" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-34" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-34" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/4891b0faf6940a1992da2801b52c4735?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/4891b0faf6940a1992da2801b52c4735?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" decoding="async">						<b class="fn">Mark</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-34"><time datetime="2013-09-03T21:43:27-04:00">2013-09-03 at 21:43</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Works, as long as you do</p>
+<p>firewall-cmd &ndash;reload</p>
+<p>after adding the ports using firewall-cmd.</p>
+<p>Thanks for the help.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=34#respond" data-commentid="34" data-postid="352" data-belowelement="div-comment-34" data-respondelement="respond" data-replyto="Reply to Mark" aria-label="Reply to Mark">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-35" class="comment odd alt depth-2">
+			<article id="div-comment-35" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-35"><time datetime="2013-09-03T22:15:32-04:00">2013-09-03 at 22:15</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good catch &ndash; updated.  Thank you!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=35#respond" data-commentid="35" data-postid="352" data-belowelement="div-comment-35" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-37" class="comment even depth-2">
+			<article id="div-comment-37" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://2.gravatar.com/avatar/eed11c338bb2148c07cf9aa9a5b43218?s=60&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/eed11c338bb2148c07cf9aa9a5b43218?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="https://www.facebook.com/brian.hartman2" class="url" rel="ugc external nofollow">Brian Hartman</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-37"><time datetime="2013-09-06T21:27:15-04:00">2013-09-06 at 21:27</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Got it to work.  It works great now.  Thanks for your help! &#128578;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=37#respond" data-commentid="37" data-postid="352" data-belowelement="div-comment-37" data-respondelement="respond" data-replyto="Reply to Brian Hartman" aria-label="Reply to Brian Hartman">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-59" class="comment odd alt depth-2">
+			<article id="div-comment-59" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/?s=60&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo avatar-default" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="https://plus.google.com/117387596521956833876" class="url" rel="ugc external nofollow">Parker Lumpee</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-59"><time datetime="2014-03-30T19:40:46-04:00">2014-03-30 at 19:40</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This did it for me, working perfect now.  Thanks to you and the OP.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=59#respond" data-commentid="59" data-postid="352" data-belowelement="div-comment-59" data-respondelement="respond" data-replyto="Reply to Parker Lumpee" aria-label="Reply to Parker Lumpee">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-38" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://android-minipc.azurewebsites.net/index.php/2013/09/googles-35-chromecast-might-redefine-the-media-player-market/" class="url" rel="ugc external nofollow">Google&rsquo;s $35 Chromecast Might Redefine the Media Player Market | Android MiniPCs and TVBoxes</a> 			</div>
+		</li><!-- #comment-## -->
+		<li id="comment-39" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-39" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/6654fb06ef8ba57cc7e564118405e239?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/6654fb06ef8ba57cc7e564118405e239?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="https://plus.google.com/109135056100630258151" class="url" rel="ugc external nofollow">Forrest Sweasy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-39"><time datetime="2013-09-10T20:45:18-04:00">2013-09-10 at 20:45</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I got the chromecast working from my android devices, but this solution did not work for me. It&rsquo;s getting late and my mind is a bit fuzzy. I&rsquo;ll try again tomorrow.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=39#respond" data-commentid="39" data-postid="352" data-belowelement="div-comment-39" data-respondelement="respond" data-replyto="Reply to Forrest Sweasy" aria-label="Reply to Forrest Sweasy">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-40" class="comment even thread-even depth-1">
+			<article id="div-comment-40" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/dda76e99344af93dc6085d5d2bc264cf?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/dda76e99344af93dc6085d5d2bc264cf?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">tc3driver</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-40"><time datetime="2013-09-11T03:23:41-04:00">2013-09-11 at 03:23</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you good sir&hellip;. I was running out of Ideas&hellip;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=40#respond" data-commentid="40" data-postid="352" data-belowelement="div-comment-40" data-respondelement="respond" data-replyto="Reply to tc3driver" aria-label="Reply to tc3driver">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-41" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-41" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/137aec91195e2b4475c265aa96be109a?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/137aec91195e2b4475c265aa96be109a?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="https://plus.google.com/104703161912092497956" class="url" rel="ugc external nofollow">Yash</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-41"><time datetime="2013-10-12T05:45:08-04:00">2013-10-12 at 05:45</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks very much for this. I had almost given up on getting it to work with my Fedora laptop.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=41#respond" data-commentid="41" data-postid="352" data-belowelement="div-comment-41" data-respondelement="respond" data-replyto="Reply to Yash" aria-label="Reply to Yash">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-42" class="comment even thread-even depth-1">
+			<article id="div-comment-42" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://2.gravatar.com/avatar/ed5846746c3119ad71c513f4a98cee62?s=60&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/ed5846746c3119ad71c513f4a98cee62?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://joelvasallo.com" class="url" rel="ugc external nofollow">Joel</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-42"><time datetime="2013-10-21T01:36:55-04:00">2013-10-21 at 01:36</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I would hug you if I could. This has been bugging me forever&hellip;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=42#respond" data-commentid="42" data-postid="352" data-belowelement="div-comment-42" data-respondelement="respond" data-replyto="Reply to Joel" aria-label="Reply to Joel">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-43" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-43" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/a5e0b3aa7a684145c294d5b2c09252dd?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/a5e0b3aa7a684145c294d5b2c09252dd?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://gravatar.com/stiegmann" class="url" rel="ugc external nofollow">Andrew Stiegmann</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-43"><time datetime="2013-10-31T01:31:33-04:00">2013-10-31 at 01:31</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Excellent post.  Also of note you can use the zone features of firewalld so that you only open this up inside your home.  I ran the following command</p>
+<p>firewall-cmd &ndash;permanent &ndash;zone=home &ndash;add-port=&rdquo;32768-61000/udp&rdquo;</p>
+<p>And then configured my home wifi to use this firewall zone through NetworkManager.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=43#respond" data-commentid="43" data-postid="352" data-belowelement="div-comment-43" data-respondelement="respond" data-replyto="Reply to Andrew Stiegmann" aria-label="Reply to Andrew Stiegmann">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-44" class="comment even depth-2">
+			<article id="div-comment-44" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-44"><time datetime="2013-11-02T13:27:37-04:00">2013-11-02 at 13:27</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Absolutely right, I&rsquo;m always one for increased security &ndash; especially when opening such a wide range of ports!  Post updates to note your feedback &ndash; thank you!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=44#respond" data-commentid="44" data-postid="352" data-belowelement="div-comment-44" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-45" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-45" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/74a3efa3fbf98926d8546194c1b263d7?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/74a3efa3fbf98926d8546194c1b263d7?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://stevenrosenberg.net/blog" class="url" rel="ugc external nofollow">Steven Rosenberg</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-45"><time datetime="2013-11-10T16:43:01-04:00">2013-11-10 at 16:43</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I couldn&rsquo;t get this to work all the way. The first time I had an SELinux error, so I ran the following:</p>
+<p># grep sh /var/log/audit/audit.log | audit2allow -M mypol<br>
+# semodule -i mypol.pp</p>
+<p>Then I ran this:</p>
+<p># firewall-cmd &ndash;permanent &ndash;zone=home &ndash;add-port=&rdquo;32768-61000/udp&rdquo;</p>
+<p>The terminal hangs on the last command &mdash; I don&rsquo;t get the prompt back.</p>
+<p>Ideas?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=45#respond" data-commentid="45" data-postid="352" data-belowelement="div-comment-45" data-respondelement="respond" data-replyto="Reply to Steven Rosenberg" aria-label="Reply to Steven Rosenberg">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-46" class="comment even depth-2">
+			<article id="div-comment-46" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-46"><time datetime="2013-11-10T16:57:36-04:00">2013-11-10 at 16:57</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Please try again, without the double-quotes around the range.  Not sure where I picked those up from, but I can confirm the behavior you are seeing, and can confirm it works correctly without the quotes.</p>
+<p>I have corrected the post too.</p>
+<p>Thanks for catching this!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=46#respond" data-commentid="46" data-postid="352" data-belowelement="div-comment-46" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-47" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-47" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/74a3efa3fbf98926d8546194c1b263d7?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/74a3efa3fbf98926d8546194c1b263d7?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://stevenrosenberg.net/blog" class="url" rel="ugc external nofollow">Steven Rosenberg</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-47"><time datetime="2013-11-11T01:42:00-04:00">2013-11-11 at 01:42</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That worked!</p>
+<p>In this order: </p>
+<p><code># grep sh /var/log/audit/audit.log | audit2allow -M mypol<br>
+# semodule -i mypol.pp<br>
+# firewall-cmd --permanent --zone=home --add-port=32768-61000/udp<br>
+# firewall-cmd --reload</code></p>
+<p>Thanks for the help.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=47#respond" data-commentid="47" data-postid="352" data-belowelement="div-comment-47" data-respondelement="respond" data-replyto="Reply to Steven Rosenberg" aria-label="Reply to Steven Rosenberg">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-48" class="comment even thread-even depth-1">
+			<article id="div-comment-48" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://2.gravatar.com/avatar/806c6882df748c167900214e0aa6b9d0?s=60&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/806c6882df748c167900214e0aa6b9d0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">Blake</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-48"><time datetime="2013-11-30T00:55:09-04:00">2013-11-30 at 00:55</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks Matt, the two &ldquo;firewall-cmd&rdquo; commands worked like a charm! Cheers!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=48#respond" data-commentid="48" data-postid="352" data-belowelement="div-comment-48" data-respondelement="respond" data-replyto="Reply to Blake" aria-label="Reply to Blake">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-49" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-49" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/c88ef5a5333f9c3c6943d04861750896?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/c88ef5a5333f9c3c6943d04861750896?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://twitter.com/ronak" class="url" rel="ugc external nofollow">Ronak Mallik (@ronak)</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-49"><time datetime="2014-03-22T19:36:17-04:00">2014-03-22 at 19:36</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>these directions worked for me on rhel-7 beta. thanks!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=49#respond" data-commentid="49" data-postid="352" data-belowelement="div-comment-49" data-respondelement="respond" data-replyto="Reply to Ronak Mallik (@ronak)" aria-label="Reply to Ronak Mallik (@ronak)">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-50" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-50" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo avatar-default" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">Ryan Veca</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-50"><time datetime="2014-03-30T04:00:51-04:00">2014-03-30 at 04:00</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&rsquo;m on Fedora 20, and this did not work for me. I ran &ldquo;firewall-cmd &ndash;permanent &ndash;zone=home &ndash;add-port=32768-61000/udp&rdquo; with the reload after. Works from my tablet. Any reason this doesn&rsquo;t work with 20?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=50#respond" data-commentid="50" data-postid="352" data-belowelement="div-comment-50" data-respondelement="respond" data-replyto="Reply to Ryan Veca" aria-label="Reply to Ryan Veca">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-51" class="comment odd alt depth-2 parent">
+			<article id="div-comment-51" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-51"><time datetime="2014-03-30T09:10:24-04:00">2014-03-30 at 09:10</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You may want to check (using the firewalld GUI) that the zone &ldquo;home&rdquo; is the right zone.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=51#respond" data-commentid="51" data-postid="352" data-belowelement="div-comment-51" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-52" class="comment even depth-3 parent">
+			<article id="div-comment-52" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo avatar-default" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">Ryan Veca</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-52"><time datetime="2014-03-30T13:58:32-04:00">2014-03-30 at 13:58</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Well home is there, but I&rsquo;m not sure how I need to set it up. I opened the ports temporarily on public, and it worked. Do I need to add my Chromecast to the home zone somehow?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=52#respond" data-commentid="52" data-postid="352" data-belowelement="div-comment-52" data-respondelement="respond" data-replyto="Reply to Ryan Veca" aria-label="Reply to Ryan Veca">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-53" class="comment odd alt depth-4 parent">
+			<article id="div-comment-53" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-53"><time datetime="2014-03-30T14:06:08-04:00">2014-03-30 at 14:06</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Check out the &ldquo;interfaces&rdquo; in the &ldquo;home&rdquo; zone.  You&rsquo;ll want to make sure your NIC (e.g., eth0, wlan0) belongs to &ldquo;home&rdquo;.</p>
+<p>Alternatively, public is fine too &ndash; all depends on how you want your firewall security configured.  &rdquo; public&rdquo; means all the networks connected to your computer have access, &ldquo;home&rdquo; means only the networks connected to the listed interfaces have access.  For most people at home, these two models are the same.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=53#respond" data-commentid="53" data-postid="352" data-belowelement="div-comment-53" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-54" class="comment even depth-5 parent">
+			<article id="div-comment-54" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo avatar-default" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">Ryan Veca</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-54"><time datetime="2014-03-30T14:19:16-04:00">2014-03-30 at 14:19</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Well I tried adding my wifi card interface (wlp4s0) to home permanent, but that didn&rsquo;t work, and now for some reason I can&rsquo;t remove the interface from there. I also tried opening the ports under public permanent, but that didn&rsquo;t work. Only seems to work when I open them in runtime public, which resets on reboot, correct? Any ideas?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-55" class="comment odd alt depth-5 parent">
+			<article id="div-comment-55" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-55"><time datetime="2014-03-30T14:24:04-04:00">2014-03-30 at 14:24</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Make sure to run the &ldquo;&ndash;reload&rdquo; for permanent changes to take effect immediately (I.e., that makes the rules you set for permanent application be applied to the current runtime)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-56" class="comment even depth-5 parent">
+			<article id="div-comment-56" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/95fe7de5943b7293196178b883a17951?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/95fe7de5943b7293196178b883a17951?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">Ryan Veca</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-56"><time datetime="2014-03-30T14:53:56-04:00">2014-03-30 at 14:53</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Still doesn&rsquo;t work, but I think I figured out why. My card interface is still listed under public runtime, and I think that&rsquo;s stealing control from home permanent. I&rsquo;m not able to remove the network card from the public runtime interface, but I am able to move it to home runtime interface, and it works then. Any idea how I can stop public runtime from grabbing my card interface?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-57" class="comment odd alt depth-5 parent">
+			<article id="div-comment-57" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-57"><time datetime="2014-03-30T15:08:27-04:00">2014-03-30 at 15:08</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>A couple things:<br>
+&ldquo;Runtime&rdquo; represents how things are running, right this very moment.<br>
+&ldquo;Permanent&rdquo; represents what is stored in the config files.  This might not yet have taken effect (that is, become &ldquo;runtime&rdquo;), but it will take affect the next time you &ldquo;reload&rdquo; the firewarell, or reboot the box.</p>
+<p>So, to make sure your interface stays in the &ldquo;home&rdquo; zone, you&rsquo;ll want to configure that under the &ldquo;permanent&rdquo; settings.  But, even better &mdash; go into &ldquo;Settings&rdquo;-&gt;&rdquo;Network&rdquo;, click the gear icon for your NIC, select the &ldquo;Identity&rdquo; option on the left, and change the firewall zone for your NIC to home.  That will set this as your permanent zone for the NIC, and will take affect next time you reload, reconnect, or reboot &mdash; I&rsquo;d recommend just rebooting for simplicity.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-58" class="comment even depth-5">
+			<article id="div-comment-58" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/95fe7de5943b7293196178b883a17951?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/95fe7de5943b7293196178b883a17951?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">Ryan Veca</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-58"><time datetime="2014-03-30T15:29:17-04:00">2014-03-30 at 15:29</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That did it. Thanks very much for all the help. &#128578;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-60" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-60" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/?s=60&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo avatar-default" height="60" width="60" loading="lazy" decoding="async">						<b class="fn">El-Deir</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-60"><time datetime="2014-05-08T19:07:59-04:00">2014-05-08 at 19:07</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Very goog! greatful!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=60#respond" data-commentid="60" data-postid="352" data-belowelement="div-comment-60" data-respondelement="respond" data-replyto="Reply to El-Deir" aria-label="Reply to El-Deir">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-61" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-61" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/ad813753ab06d09feab1ee7559d2a0d3?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/ad813753ab06d09feab1ee7559d2a0d3?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://gravatar.com/mauriciograciag" class="url" rel="ugc external nofollow">mauriciograciag</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-61"><time datetime="2015-08-03T11:47:27-04:00">2015-08-03 at 11:47</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>IMHO</p>
+<p>you need to to include a SUDO to the IPTABLES command</p>
+<p>     sudo iptables -A INPUT -s 192.168.0.0/24 -p udp -m udp &ndash;dport 32768:61000 -j ACCEPT</p>
+<p>And other improvements for this post are</p>
+<p>Mention the most secure option first<br>
+    firewall-cmd &ndash;permanent &ndash;zone=home &ndash;add-port=32768-61000/udp</p>
+<p>and then mention that if after trying this it still does not work then you should try the other commands </p>
+<p>   firewall-cmd &ndash;permanent &ndash;add-port=32768-61000/udp</p>
+<p>If someone added all this new rules and did not work or just wants to reverse them to avoid security issues execute this commands</p>
+<p>    firewall-cmd &ndash;permanent &ndash;remove-port=32768-61000/udp<br>
+    firewall-cmd &ndash;permanent &ndash;zone=home &ndash;remove-port=32768-61000/udp<br>
+    firewall-cmd &ndash;reload</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=61#respond" data-commentid="61" data-postid="352" data-belowelement="div-comment-61" data-respondelement="respond" data-replyto="Reply to mauriciograciag" aria-label="Reply to mauriciograciag">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-62" class="comment odd alt depth-2 parent">
+			<article id="div-comment-62" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-62"><time datetime="2015-08-03T12:07:14-04:00">2015-08-03 at 12:07</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi mauriciograciag, thank you for the great feedback.  I have added a short update to address your points.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=62#respond" data-commentid="62" data-postid="352" data-belowelement="div-comment-62" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-63" class="comment even depth-3 parent">
+			<article id="div-comment-63" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/ad813753ab06d09feab1ee7559d2a0d3?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/ad813753ab06d09feab1ee7559d2a0d3?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://gravatar.com/mauriciograciag" class="url" rel="ugc external nofollow">mauriciograciag</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-63"><time datetime="2015-08-03T13:13:17-04:00">2015-08-03 at 13:13</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks Matt. How about the chromcast setup tool (that is used for the first time setup o reconfiguration) can that also be installed in Fedora 22 ?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=63#respond" data-commentid="63" data-postid="352" data-belowelement="div-comment-63" data-respondelement="respond" data-replyto="Reply to mauriciograciag" aria-label="Reply to mauriciograciag">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-64" class="comment odd alt depth-4">
+			<article id="div-comment-64" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-64"><time datetime="2015-08-04T22:02:08-04:00">2015-08-04 at 22:02</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You know, I&rsquo;ve always just used the Android app (I don&rsquo;t think there was any other way back when I ordered mine, part of the first batch) ! If you have any directions, I&rsquo;d be happy to reference them.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=64#respond" data-commentid="64" data-postid="352" data-belowelement="div-comment-64" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-65" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-65" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/c98f55d7212994fd32cb3347c4b3f830?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/c98f55d7212994fd32cb3347c4b3f830?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://twitter.com/fultonj" class="url" rel="ugc external nofollow">John Fulton (@fultonj)</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-65"><time datetime="2015-12-29T14:57:27-04:00">2015-12-29 at 14:57</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Funny when Google brings you to a useful page and then you look up and say &ldquo;I know that guy&rdquo;. Thanks Matt. This got my Chormecast working on my RHEL7.2 laptop.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=65#respond" data-commentid="65" data-postid="352" data-belowelement="div-comment-65" data-respondelement="respond" data-replyto="Reply to John Fulton (@fultonj)" aria-label="Reply to John Fulton (@fultonj)">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-66" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-66" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://1.gravatar.com/avatar/782ebaabebccd8fdff09f7c2dc6106c1?s=60&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/782ebaabebccd8fdff09f7c2dc6106c1?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="https://www.facebook.com/app_scoped_user_id/10206307204180621/" class="url" rel="ugc external nofollow">Hsiao-Ting Wang</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-66"><time datetime="2016-04-13T11:53:45-04:00">2016-04-13 at 11:53</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This tip save a lot of my time. Thanks a lot!</p>
+<p>However, curious about why this obstacle only happen on CentOS not yet Ubuntu.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=66#respond" data-commentid="66" data-postid="352" data-belowelement="div-comment-66" data-respondelement="respond" data-replyto="Reply to Hsiao-Ting Wang" aria-label="Reply to Hsiao-Ting Wang">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-67" class="comment even depth-2">
+			<article id="div-comment-67" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=60&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">						<b class="fn"><a href="http://forsetti.wordpress.com" class="url" rel="ugc external nofollow">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/2013/08/using-google-chromecast-from-fedora-19/#comment-67"><time datetime="2016-04-13T13:45:28-04:00">2016-04-13 at 13:45</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I don&rsquo;t use Ubuntu very often, but is the firewall enabled by default, and does it block the high numbered ports by default?  If it is not enabled, then this does not need to be done.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/?replytocom=67#respond" data-commentid="67" data-postid="352" data-belowelement="div-comment-67" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2013/08/using-google-chromecast-from-fedora-19/#respond" style="display:none;">Cancel reply</a></small></h3><form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="352" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	<div id="secondary" class="widget-area" role="complementary">
+		<aside id="block-2" class="widget widget_block widget_search"></aside><aside id="block-3" class="widget widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">Recent Posts</h2><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2019/01/installing-fedora-29-on-orange-pi-zero/">Installing Fedora 29 on Orange Pi Zero</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2018/11/making-a-word-cloud-of-your-taskwarrior-tags/">Making a Word Cloud of your #TaskWarrior Tags</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2018/09/fedora-29-beta-on-gpd-pocket-2/">Fedora 29 Beta on GPD Pocket 2</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2018/09/fedora-28-on-the-gpd-pocket-2/">Fedora 28 on the GPD Pocket 2</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2018/08/reduced-footprint-vs-minimal-footprint/">Reduced footprint vs minimal footprint</a></li>
+</ul></div></div></aside><aside id="block-4" class="widget widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">Recent Comments</h2><ol class="wp-block-latest-comments"><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://mjs.fyi">Matt Smith</a> on <a class="wp-block-latest-comments__comment-link" href="/2019/01/installing-fedora-29-on-orange-pi-zero/#comment-85">Installing Fedora 29 on Orange Pi Zero</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><span class="wp-block-latest-comments__comment-author">Jan</span> on <a class="wp-block-latest-comments__comment-link" href="/2019/01/installing-fedora-29-on-orange-pi-zero/#comment-84">Installing Fedora 29 on Orange Pi Zero</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://mjs.fyi/2018/09/26/fedora-29-beta-on-gpd-pocket-2/">Fedora 29 Beta on GPD Pocket 2 &ndash; mjs.fyi</a> on <a class="wp-block-latest-comments__comment-link" href="/2018/09/fedora-28-on-the-gpd-pocket-2/#comment-83">Fedora 28 on the GPD Pocket 2</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://dsirlab.wordpress.com">dsirrine</a> on <a class="wp-block-latest-comments__comment-link" href="/2018/08/reduced-footprint-vs-minimal-footprint/#comment-82">Reduced footprint vs minimal footprint</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://dsirlab.wordpress.com">dsirrine</a> on <a class="wp-block-latest-comments__comment-link" href="/2018/04/a-personal-mobile-lan/#comment-81">A personal mobile LAN</a></footer></article></li></ol></div></div></aside><aside id="block-5" class="widget widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">Archives</h2><ul class="wp-block-archives-list wp-block-archives">	<li><a href="/2019/01/">January 2019</a></li>
+	<li><a href="/2018/11/">November 2018</a></li>
+	<li><a href="/2018/09/">September 2018</a></li>
+	<li><a href="/2018/08/">August 2018</a></li>
+	<li><a href="/2018/04/">April 2018</a></li>
+	<li><a href="/2018/03/">March 2018</a></li>
+	<li><a href="/2018/01/">January 2018</a></li>
+	<li><a href="/2017/12/">December 2017</a></li>
+	<li><a href="/2017/11/">November 2017</a></li>
+	<li><a href="/2016/06/">June 2016</a></li>
+	<li><a href="/2016/04/">April 2016</a></li>
+	<li><a href="/2016/03/">March 2016</a></li>
+	<li><a href="/2016/02/">February 2016</a></li>
+	<li><a href="/2016/01/">January 2016</a></li>
+	<li><a href="/2015/12/">December 2015</a></li>
+	<li><a href="/2015/11/">November 2015</a></li>
+	<li><a href="/2015/05/">May 2015</a></li>
+	<li><a href="/2015/04/">April 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/01/">January 2015</a></li>
+	<li><a href="/2014/12/">December 2014</a></li>
+	<li><a href="/2014/10/">October 2014</a></li>
+	<li><a href="/2014/09/">September 2014</a></li>
+	<li><a href="/2014/02/">February 2014</a></li>
+	<li><a href="/2014/01/">January 2014</a></li>
+	<li><a href="/2013/12/">December 2013</a></li>
+	<li><a href="/2013/11/">November 2013</a></li>
+	<li><a href="/2013/08/">August 2013</a></li>
+	<li><a href="/2013/04/">April 2013</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2013/02/">February 2013</a></li>
+	<li><a href="/2013/01/">January 2013</a></li>
+	<li><a href="/2012/12/">December 2012</a></li>
+	<li><a href="/2012/10/">October 2012</a></li>
+	<li><a href="/2012/09/">September 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+	<li><a href="/2012/06/">June 2012</a></li>
+	<li><a href="/2012/05/">May 2012</a></li>
+	<li><a href="/2012/03/">March 2012</a></li>
+	<li><a href="/2011/10/">October 2011</a></li>
+	<li><a href="/2011/09/">September 2011</a></li>
+	<li><a href="/2011/07/">July 2011</a></li>
+	<li><a href="/2011/04/">April 2011</a></li>
+	<li><a href="/2011/03/">March 2011</a></li>
+	<li><a href="/2011/01/">January 2011</a></li>
+	<li><a href="/2010/12/">December 2010</a></li>
+	<li><a href="/2010/11/">November 2010</a></li>
+	<li><a href="/2010/10/">October 2010</a></li>
+	<li><a href="/2010/09/">September 2010</a></li>
+	<li><a href="/2010/08/">August 2010</a></li>
+</ul></div></div></aside><aside id="block-6" class="widget widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">Categories</h2><ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-2"><a href="/category/lazyweb/">@lazyweb</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/cloud/">cloud</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/debian/">debian</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/enterprise/">enterprise</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/linux/">linux</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/personal/">Personal</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/linux/redhat/">redhat</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/syndicated/">syndicated</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="/category/uconn/">UConn</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized/">Uncategorized</a>
+</li>
+</ul></div></div></aside>	</div><!-- #secondary -->
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="http://wordpress.org/">Proudly powered by WordPress</a>
+			<span class="sep"> ~ </span>
+			Theme: Penscratch by <a href="http://wordpress.com/themes/penscratch/" rel="designer">WordPress.com</a>.		</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type="text/javascript" src="/wp-content/themes/penscratch/js/navigation.js?ver=20120206" id="penscratch-navigation-js"></script>
+<script type="text/javascript" src="/wp-content/themes/penscratch/js/skip-link-focus-fix.js?ver=20130115" id="penscratch-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="/wp-includes/js/comment-reply.min.js?ver=6.6.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+
+</body>
+</html>
+<!-- Powered by Staatic (https://staatic.com/) -->

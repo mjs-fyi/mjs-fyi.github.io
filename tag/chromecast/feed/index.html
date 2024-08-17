@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>chromecast &#8211; mjs.fyi</title>
+	<atom:link href="/tag/chromecast/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Sat, 02 Nov 2013 17:23:54 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Pandora + Chromecast = Awesome!</title>
+		<link>/2013/11/pandora-chromecast-awesome/</link>
+					<comments>/2013/11/pandora-chromecast-awesome/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sat, 02 Nov 2013 17:23:54 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[chromecast]]></category>
+		<guid isPermaLink="false">https://forsetti.wordpress.com/?p=384</guid>
+
+					<description><![CDATA[http://blog.pandora.com/2013/10/31/enjoy-one-touch-streaming-of-pandora-to-your-tv-with-google-chromecast/ OK, so maybe it is still a pretty short list of apps that work on the Chromecast &#8230;. but it&#8217;s only $35 !!!  Pandora has now joined the list: Google Play Music and Video YouTube Netflix Hulu+ Pandora I&#8217;m getting pretty darn close to canceling ( or at least reducing ) the cable package!!!]]></description>
+										<content:encoded><![CDATA[<p><a href="http://blog.pandora.com/2013/10/31/enjoy-one-touch-streaming-of-pandora-to-your-tv-with-google-chromecast/">http://blog.pandora.com/2013/10/31/enjoy-one-touch-streaming-of-pandora-to-your-tv-with-google-chromecast/</a></p>
+<p>OK, so maybe it is still a pretty short list of apps that work on the Chromecast &#8230;. but it&#8217;s only $35 !!!  Pandora has now joined the list:</p>
+<ul>
+<li>Google Play Music and Video</li>
+<li>YouTube</li>
+<li>Netflix</li>
+<li>Hulu+</li>
+<li>Pandora</li>
+</ul>
+<p>I&#8217;m getting pretty darn close to canceling ( or at least reducing ) the cable package!!!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2013/11/pandora-chromecast-awesome/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Using Google Chromecast from Fedora 19</title>
+		<link>/2013/08/using-google-chromecast-from-fedora-19/</link>
+					<comments>/2013/08/using-google-chromecast-from-fedora-19/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sun, 25 Aug 2013 21:27:24 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[chromecast]]></category>
+		<category><![CDATA[linux]]></category>
+		<guid isPermaLink="false">http://forsetti.wordpress.com/?p=352</guid>
+
+					<description><![CDATA[Using Chrome&#8217;s Google Cast with the Google Chromecast from an IPTables-enabled Linux distribution can be a bit tricky. The extension starts by issuing an SSDP request from a local ephemeral UDP port to 239.255.255.250 port 1900.  The Chromecast will respond from its IP and another ephemeral UDP port, back to your source UDP port. IPTables cannot track [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Using Chrome&#8217;s <a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en">Google Cast</a> with the <a href="http://google.com/chromecast">Google Chromecast</a> from an IPTables-enabled Linux distribution can be a bit tricky.</p>
+<p>The extension starts by issuing an SSDP request from a local ephemeral UDP port to 239.255.255.250 port 1900.  The Chromecast will respond from its IP and another ephemeral UDP port, back to your source UDP port.</p>
+<p>IPTables cannot track this simply as &#8220;RELATED&#8221;, given that the target of the first packet is the multicast address, while the source of the response packet is the Chromecast&#8217;s IP.  And unfortunately, there is no SSDP conntrack module (at least, not that I am aware of, at the time of writing this post).</p>
+<p>Therefore, the best we can do for now is to open the ephemeral port range on the client machine.  The list of ephemeral ports, as defined by your Linux machine, can be found by:</p>
+<pre>cat /proc/sys/net/ipv4/ip_local_port_range</pre>
+<p>Fedora19 uses firewalld, so you will want to use the following:</p>
+<pre>firewall-cmd --permanent --add-port=32768-61000/udp
+firewall-cmd --reload</pre>
+<p>Given the wide range of ports being opened, you may want to restrict access to just your local network. Consider using Network Manager to associate your NIC (eth0,wlan0, whatever) with your &#8220;home&#8221; zone, and use the following command instead of the above:</p>
+<pre>firewall-cmd --permanent --zone=home --add-port=32768-61000/udp</pre>
+<p>On non-firewalld systems, use this IPTables one-liner (modifying 192.168.0.0/24 as appropriate for your home network):</p>
+<pre>iptables -A INPUT -s 192.168.0.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT</pre>
+<p>Launch Chrome, click the Cast extensions, and it should now &#8220;Just Work&#8221;.  And if it doesn&#8217;t &#8230;. please let me know in the comments on this post.</p>
+<p><strong>UPDATE 20150803 &#8211; A few additional notes inspired by the great comment from <a id="commentauthor-1537" href="http://gravatar.com/mauriciograciag">mauriciograciag</a>:</strong></p>
+<p>Note the use of the &#8220;&#8211;zone=home&#8221; parameter in the second firewall-cmd example above.  This <em>can</em> be a more secure option, but does require ensuring that you have a zone named &#8220;home&#8221;, and that Network Manager associates your active network profile with this zone.  If the Network Manager configuration is in place, I do recommend using that option for those working from systems (laptops) that might also find themselves on alternate networks.  However, for desktops that will not be connected to other networks, use of a zone will likely not add any tangible benefits.</p>
+<p>If you set these rules via firewall-cmd and wish to revert them, the following should do the trick:</p>
+<pre>firewall-cmd –permanent –remove-port=32768-61000/udp
+firewall-cmd –permanent –zone=home –remove-port=32768-61000/udp
+firewall-cmd –reload</pre>
+<p>And lastly, note that the iptables rule must be run as root. Typically, this will be done by updating the iptables startup configuration for your favorite Linux distribution (e.g., you may need to add that line to /etc/iptables); but you might also want to run this a single time, non-persistently, from the command line.  If you have configured sudo appropriately on your Linux systems, preceding the iptables command with &#8220;sudo&#8221; would work as follows:</p>
+<pre>sudo iptables -A INPUT -s 192.168.0.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2013/08/using-google-chromecast-from-fedora-19/feed/</wfw:commentRss>
+			<slash:comments>35</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

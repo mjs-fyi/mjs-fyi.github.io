@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>summit &#8211; mjs.fyi</title>
+	<atom:link href="/tag/summit/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Fri, 29 Jun 2012 14:11:55 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Build a PaaS using Open Source Software</title>
+		<link>/2012/06/build-a-paas-using-open-source-software/</link>
+					<comments>/2012/06/build-a-paas-using-open-source-software/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Fri, 29 Jun 2012 14:11:55 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[summit]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=184</guid>
+
+					<description><![CDATA[Discussion about OpenShift.  OpenShift has been fully open-sourced, available on GitHub for local deployment, or directly usable as a hosted solution. Rule #1: IaaS != PaaS Virtual machines : Application is not necessarily 1:1 Rule #2: PaaS is not a silver bullet Great for Self-service deployment of applications, varied volatile workloads (development, testing, scale-up/out), with tightly [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Discussion about OpenShift.  OpenShift has been fully open-sourced, available on <a href="http://github.com/openshift">GitHub</a> for local deployment, or directly usable as a hosted <a href="https://openshift.redhat.com/app/">solution</a>.</p>
+<p><strong>Rule #1: IaaS != PaaS</strong></p>
+<p>Virtual machines : Application is not necessarily 1:1</p>
+<p><strong>Rule #2: PaaS is not a silver bullet</strong></p>
+<p><strong></strong>Great for Self-service deployment of applications, varied volatile workloads (development, testing, scale-up/out), with tightly constrained application rules &#8212; which implies standardized deployments from template.</p>
+<p><strong>Rule #3: PaaS is about developers &#8212; AND OPERATIONS!!!!</strong></p>
+<p>Operations becomes about capacity planning, not ticket-drive activities.</p>
+<p><strong>Rule #4: Be ready to learn</strong></p>
+<p><strong></strong>Developers want languages variety, scaling models, integration models &#8212; and they want it automagically</p>
+<p>Operations want multi-tenancy, familiar installation, and sane configurations &#8212; all reproducible.</p>
+<p><strong>What is an application?</strong></p>
+<p>Runtime (OpenShift cartridges)</p>
+<p>Code (One Git repository per application)</p>
+<p><strong>Creating an App</strong></p>
+<p>The rhc tools are used to create a namespace (domain), then an application space which includes a name and cartridge type, and push the code.</p>
+<p><strong>What do you get from public OpenShift?</strong></p>
+<p><strong></strong>A slice of the server, a private Git repository, deployment access.</p>
+<p>The PaaS service is comprised of a Broker (director front-end, RESTful) and Nodes.  Each node has multiple &#8220;gears&#8221; (containers secured with SELinux, constrained with cgroups, and isolated with Kernel namespaces and Bind Mounts).</p>
+<p><strong>Extending OpenShift</strong></p>
+<p>Custom DNS plugins, auth plugs, security policies, and community cartridges.  Quick-start frameworks can be offered to community too.</p>
+<p><strong>LXC and SELinux are the future for isolating and securing OpenShift&#8230;</strong></p>
+<p>&#8230; but right now, there are a many moving parts being used to provide isolation and security.</p>
+<p><strong>PaaS demans a new security model</strong></p>
+<p><strong></strong>DAC just won&#8217;t cut-it, too complicated for PaaS.  MAC (SELinux!) is necessary.</p>
+<p><strong>Step 1 &#8211; Unlearn this (and embrace SELinux)!</strong></p>
+<pre>setenforce 0</pre>
+<p><strong>Step 2 &#8211; Learn the &#8216;Z&#8217; (to see SELinux contexts)</strong></p>
+<pre>ls -lZ
+ps -efZ</pre>
+<p><strong>(Review of SELinux contexts and syntax provided)</strong></p>
+<p><a href="http://fedoraproject.org/wiki/SELinux">http://fedoraproject.org/wiki/SELinux</a></p>
+<p><strong>Demo &#8211; deployment of WordPress to OpenShift, in a VirtualBox LiveCD</strong></p>
+<p>The OpenShift QuickStart is available here: <a href="https://github.com/openshift/wordpress-example">https://github.com/openshift/wordpress-example</a></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/06/build-a-paas-using-open-source-software/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Campground: CloudForms + Splunk</title>
+		<link>/2012/06/campground-cloudforms-splunk/</link>
+					<comments>/2012/06/campground-cloudforms-splunk/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Thu, 28 Jun 2012 15:16:22 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[summit]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=143</guid>
+
+					<description><![CDATA[Great co-hosted Red Hat &#38; Splunk discussion about CloudForms-Splunk integration! Goal: Measure CloudForms utilization by date/time, by user, by cloud povider, and totals. Simple rsyslog config to send the right data over into Splunk, then just add the &#8220;Splunk for Red Hat CloudForms&#8221; app &#8212; the metrics stated in the above goal are there, right [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Great co-hosted Red Hat &amp; Splunk discussion about CloudForms-Splunk integration!</p>
+<p><strong>Goal: Measure CloudForms utilization by date/time, by user, by cloud povider, and totals.</strong></p>
+<p>Simple rsyslog config to send the right data over into Splunk, then just add the <a href="http://splunk-base.splunk.com/apps/51023/splunk-app-for-redhat-cloudforms">&#8220;Splunk for Red Hat CloudForms&#8221;</a> app &#8212; the metrics stated in the above goal are there, right out of the box.  It really is (or at least seems to be) that easy!</p>
+<p>And yes &#8212; the Splunk guys know Steve Maresca (and UConn) *very* well.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/06/campground-cloudforms-splunk/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Distributed File System Choices: Red Hat Storage, GFS2, &#038; pNFS</title>
+		<link>/2012/06/distributed-file-system-choices-red-hat-storage-gfs2-pnfs/</link>
+					<comments>/2012/06/distributed-file-system-choices-red-hat-storage-gfs2-pnfs/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 27 Jun 2012 18:55:40 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[summit]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=130</guid>
+
+					<description><![CDATA[Red Hat has several options for storage needs &#8212; GFS2, CIFS, (p)NFS, Gluster.  It&#8217;s all about right tool for the job. http://www.redhat.com/summit/sessions/index.html#103 RHEL Resilient Storage &#8211; GFS2 Shared storage, scales up to 100TB per instance, supports 2-16 nodes in the cluster, x86_64 only. Performance is directly related to server and storage class, and to access [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Red Hat has several options for storage needs &#8212; GFS2, CIFS, (p)NFS, Gluster.  It&#8217;s all about right tool for the job.</p>
+<p><a href="http://www.redhat.com/summit/sessions/index.html#103">http://www.redhat.com/summit/sessions/index.html#103</a></p>
+<h1>RHEL Resilient Storage &#8211; GFS2</h1>
+<p>Shared storage, scales up to 100TB per instance, supports 2-16 nodes in the cluster, x86_64 only.</p>
+<p>Performance is directly related to server and storage class, and to access sets &#8212; best case is where each node generally access its own filesystem area, worst case is where nodes are fighting for locks of the same files/directories.</p>
+<h1>RHEL NFS Client</h1>
+<p>It&#8217;s an NFS client &#8212; what else needs to be said?</p>
+<h1>pNFS</h1>
+<p>Metadata server tells you where to go to get your data, and can even reference data across multiple-tiers &#8212; NFS or directly to the SAN.</p>
+<p>Performance can be enhanced with large write caches, internally tiered storage, and is suitable for most workloads, even transactional DBs (using O_DIRECT).  Not so good for highly random read workloads.</p>
+<h1>Red Hat Storage (Gluster + utilities, support, and blueprint)</h1>
+<p>RHS is a standalone product.  RHS servers in supported config are RAID6+local storage, XFS filesystems, dedicated RHEL6.x and Gluster software, all deployed on commodity hardware (reducing cost).</p>
+<p>Clients use Gluster for scalability; NFS or CIFS for simplicity.</p>
+<p>Performance improved by scaling horizontally across servers.  But, there is no write cache, and Gluster is a user=space filesystem with some overhead from context switching.  Likely not suitable for big I/O (databases, mail servers), but great for big unstructured data.</p>
+<p>Scales to 6PB (or 3PB mirrored), and can add capacity dynamically.</p>
+<h1></h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/06/distributed-file-system-choices-red-hat-storage-gfs2-pnfs/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>SELinux for Immortals</title>
+		<link>/2012/06/selinux-for-immortals/</link>
+					<comments>/2012/06/selinux-for-immortals/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 27 Jun 2012 17:44:44 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[summit]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=127</guid>
+
+					<description><![CDATA[SELinux provides *very* strong sandboxing capabilities.  In very simplistic terms &#8212; access control can now be applied not just at the filesystem, but also across network access, X access, enforced and automatic chroots that are cleaned-up when the process ends, all with fine-grained audit logging. But &#8212; this ain&#8217;t your grandma&#8217;s chmod.  There is some [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>SELinux provides *very* strong sandboxing capabilities.  In very simplistic terms &#8212; access control can now be applied not just at the filesystem, but also across network access, X access, enforced and automatic chroots that are cleaned-up when the process ends, all with fine-grained audit logging.</p>
+<p>But &#8212; this ain&#8217;t your grandma&#8217;s chmod.  There is some significant complexity.  But, depending in your risk model, it may very well be worth it.</p>
+<p>Note &#8212; check out the sandbox util (policycoreutils-python) with the X capabilities (policycoreutils-sandbox).  Provides a great tool for running individual processes under extremely tight lock-down.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/06/selinux-for-immortals/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Application High Availability in Virtual Environments</title>
+		<link>/2012/06/application-high-availability-in-virtual-environments/</link>
+					<comments>/2012/06/application-high-availability-in-virtual-environments/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 27 Jun 2012 21:04:51 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[summit]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=139</guid>
+
+					<description><![CDATA[http://www.redhat.com/summit/sessions/index.html#394 Great discussion around Red Hat&#8217;s solutions for clustering, fencing, etc, in virtualized environments. Fencing is /very/ important for shared resources, especially disk.  In a virtualized world (RHEV, VMWare, etc), fencing tools can reach right into the hypervisor to kill a failed node in a cluster.  Similarly, ILO, RSA, DRAC, etc can be used to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>http://www.redhat.com/summit/sessions/index.html#394</p>
+<p>Great discussion around Red Hat&#8217;s solutions for clustering, fencing, etc, in virtualized environments.</p>
+<p>Fencing is /very/ important for shared resources, especially disk.  In a virtualized world (RHEV, VMWare, etc), fencing tools can reach right into the hypervisor to kill a failed node in a cluster.  Similarly, ILO, RSA, DRAC, etc can be used to kill power to physical servers.  Either way, before another node in a cluster takes over the shared resource, it is *critical* that the other node is killed.  But obviously &#8212; this is an easy way to shoot yourself in the foot.  As the presentors just said &#8211; &#8220;test, test, and test some more&#8221; to make sure you fencing parameters align with your deployment.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/06/application-high-availability-in-virtual-environments/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Simplified VDI with Red Hat Enterprise Virtualization for Desktops</title>
+		<link>/2012/06/simplified-vdi-with-red-hat-enterprise-virtualization-for-desktops/</link>
+					<comments>/2012/06/simplified-vdi-with-red-hat-enterprise-virtualization-for-desktops/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 27 Jun 2012 15:08:12 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[summit]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=123</guid>
+
+					<description><![CDATA[The Red Hat VDI solution has come a long way &#8230; client-side rendering and media off-load, built right on top of the RHEV stack (no separate infrastructure!), user portal is part of the package (no additional purchase!). Comparisons between VMWare View and XenDesktop show roughly functionality/feature parity, but Red Hat VDI appears *much* less expensive, [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The Red Hat VDI solution has come a long way &#8230; client-side rendering and media off-load, built right on top of the RHEV stack (no separate infrastructure!), user portal is part of the package (no additional purchase!).</p>
+<p>Comparisons between VMWare View and XenDesktop show roughly functionality/feature parity, but Red Hat VDI appears *much* less expensive, and can provide both Windows and Linux virtual desktops.</p>
+<p><a href="http://www.redhat.com/summit/sessions/index.html#5">http://www.redhat.com/summit/sessions/index.html#5</a></p>
+<p>And checkout the Red Hat TCO/ROI comparison tool:</p>
+<p><a href="https://roianalyst.alinean.com/ent_02/AutoLogin.do?d=482903301639024770">https://roianalyst.alinean.com/ent_02/AutoLogin.do?d=482903301639024770</a></p>
+<p>However &#8211; a <strong>critical</strong> feature is still missing.  While Red Hat VDI looks like a <em>great</em> replacement for desktops, there is no iPad client yet.  For many, this may be the killer.  It is on the near-future roadmap though!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/06/simplified-vdi-with-red-hat-enterprise-virtualization-for-desktops/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

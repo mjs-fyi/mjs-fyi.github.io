@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ssh &#8211; mjs.fyi</title>
+	<atom:link href="/tag/ssh/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Sat, 15 Sep 2012 00:40:30 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Need a quick proxy via SSH?</title>
+		<link>/2012/09/need-a-quick-proxy-via-ssh/</link>
+					<comments>/2012/09/need-a-quick-proxy-via-ssh/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sat, 15 Sep 2012 00:40:30 +0000</pubDate>
+				<category><![CDATA[linux]]></category>
+		<category><![CDATA[ssh]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=220</guid>
+
+					<description><![CDATA[Need access to a web site, tucked behind a firewall?  Do you already have a public SSH server set up to allow access, but not sure how to tunnel your HTTP session?  It&#8217;s easy! ssh -N -D 127.0.0.1:8000 &#60;user&#62;@&#60;ssh server fqdn&#62; That command sets up a SOCKS4/SOCKS5 proxy.  Just configure your Browser/OS settings to use [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Need access to a web site, tucked behind a firewall?  Do you already have a public SSH server set up to allow access, but not sure how to tunnel your HTTP session?  It&#8217;s easy!</p>
+<pre>ssh -N -D 127.0.0.1:8000 &lt;user&gt;@&lt;ssh server fqdn&gt;</pre>
+<p>That command sets up a SOCKS4/SOCKS5 proxy.  Just configure your Browser/OS settings to use 127.0.0.1:8000 as a SOCKS proxy, and you can now access any site that your SSH server can reach.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/09/need-a-quick-proxy-via-ssh/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

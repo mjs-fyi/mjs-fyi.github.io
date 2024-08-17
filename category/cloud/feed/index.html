@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cloud &#8211; mjs.fyi</title>
+	<atom:link href="/category/cloud/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Wed, 27 Oct 2010 01:28:57 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>Enterprise, Large Scale File Services</title>
+		<link>/2010/10/enterprise-large-scale-file-services/</link>
+					<comments>/2010/10/enterprise-large-scale-file-services/#respond</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 27 Oct 2010 01:28:57 +0000</pubDate>
+				<category><![CDATA[@lazyweb]]></category>
+		<category><![CDATA[cloud]]></category>
+		<category><![CDATA[enterprise]]></category>
+		<category><![CDATA[syndicated]]></category>
+		<category><![CDATA[UConn]]></category>
+		<category><![CDATA[forsetti]]></category>
+		<category><![CDATA[linux]]></category>
+		<guid isPermaLink="false">http://forsetti.wordpress.com/?p=45</guid>
+
+					<description><![CDATA[Admittedly, the world of file services has changed since Novell ruled the roost with Netware. All sorts of new buzzwords exist: Web Content Management, Enterprise Document Management, Document Archiving, Knowledge Management &#8230; but you still can&#8217;t beat simple file storage service like Windows offers natively. Except, it is really hard to provide that kind of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Admittedly, the world of file services has changed since Novell ruled the roost with Netware.  All sorts of new buzzwords exist: Web Content Management, Enterprise Document Management, Document Archiving, Knowledge Management &#8230; but you still can&#8217;t beat simple file storage service like Windows offers natively.  Except, it is really hard to provide that kind of service at a very large scale.<br />
+So here is the question &#8212; how do I provide a file service with the following requirements:</p>
+<ul>
+<li>Must scale beyond 25,000 users (potentially 100,000), each with private &#8220;home&#8221; directories, plus whatever permutations of group space can be imagined.</li>
+<li>Must support large amounts of storage, including individual files of several hundred gigabytes, user/group quotas of several terabytes.</li>
+<li>Must support access from OSX, Windows, and Linux such that applications on these systems can natively open, read, write files &#8212; in other words, similar to simple CIFS access, though a non-native client to support this functionality is acceptable.</li>
+<li>Must support some level of access from mobile devices, including Android, iPhone/iPad, Windows Mobile, and ideally Blackberry too.</li>
+<li>Must provide a rich &#8220;sexy-looking&#8221; web interface.</li>
+<li>Must provide consistent abstract interface &#8212; in other words, scaling across hundreds of servers is acceptable, as long as users never need to be told &#8220;connect to server #17 for X, and server #53 for Y&#8221;.  There should be some sort of abstracted virtual filesystem.</li>
+<li>Must support user-controllable ACLs to facilitate sharing and security.</li>
+<li>Must be accessible by non-technical end users with very little handholding &#8211; should be &#8220;intuitive&#8221;.</li>
+<li>Must allow integration with backup solution that can provide file-level restoration.</li>
+<li>Should allow for storage of data to be accessed by Linux and Windows servers, such as user generated web content, HPC-generated research data, etc.</li>
+<li>Should allow for attachment of metadata for searching.</li>
+<li>Should allow integration with backup solution that allows end-user to perform file-level restoration.</li>
+</ul>
+<p>Some have tried to convince me that Windows DFS can do all this, but I have yet to see a deployment that actually encompasses all of the above.  Anyone have any references?</p>
+<p>I am quite intrigued by <a href="http://openafs.org/">OpenAFS</a>, using the <a href="http://www.filedrawers.org/">filedrawers</a> web interface, and possibly using the Samba gateway to avoid deploying the OpenAFS client to every machine &#8212; anyone with any experience doing this?  Anyone serve OpenAFS data out over DAV via Apache, mod_dav, and mod_waklog?  Is filedrawers or DAV an acceptable mobile device access mechanism?  Pitfalls?</p>
+<p>What else should I be considering?</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2010/10/enterprise-large-scale-file-services/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		<enclosure url="http://0.gravatar.com/avatar/369e99f35ca8642eb3e40d2ccbd28dd0?s=96&#038;d=identicon&#038;r=G" length="0" type="" />
+
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>java &#8211; mjs.fyi</title>
+	<atom:link href="/tag/java/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
+	<description>Technology, Cyber Security, Digital Transformation, and Beer</description>
+	<lastBuildDate>Sun, 01 Jul 2012 12:43:10 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+	<item>
+		<title>July 1 2012 Linux problems?  High CPU/Load?  Probably caused by the Leap Second!</title>
+		<link>/2012/07/july-1-2012-tomcat-problems-high-cpuload-probably-caused-by-the-leap-second/</link>
+					<comments>/2012/07/july-1-2012-tomcat-problems-high-cpuload-probably-caused-by-the-leap-second/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Sun, 01 Jul 2012 12:43:10 +0000</pubDate>
+				<category><![CDATA[linux]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[tomcat]]></category>
+		<guid isPermaLink="false">http://linux.uits.uconn.edu/mas02041/?p=194</guid>
+
+					<description><![CDATA[(Update posted, see below) As posted in multiple places around the web: Debian /etc/init.d/ntp stop date `date +"%m%d%H%M%C%y.%S"` Red Hat /etc/init.d/ntpd stop date `date +"%m%d%H%M%C%y.%S"` Update: This first manifested itself for us in our Java stacks &#8212; all of our (dual processor) Tomcat servers were running at a load of 30-40.  However, this is a [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><em><strong>(Update posted, see below)</strong></em></p>
+<p>As posted in multiple places around the web:</p>
+<h1>Debian</h1>
+<pre>/etc/init.d/ntp stop
+date `date +"%m%d%H%M%C%y.%S"`</pre>
+<h1>Red Hat</h1>
+<pre>/etc/init.d/ntpd stop
+date `date +"%m%d%H%M%C%y.%S"`</pre>
+<p><strong>Update:</strong></p>
+<p>This first manifested itself for us in our Java stacks &#8212; all of our (dual processor) Tomcat servers were running at a load of 30-40.  However, this is a known (and fixed) kernel bug:</p>
+<p><a href="https://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6b43ae8a619d17c4935c3320d2ef9e92bdeed05d">https://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6b43ae8a619d17c4935c3320d2ef9e92bdeed05d</a></p>
+<p>Apparently, simply forcing a reset of the date is enough to fix the problem:</p>
+<pre>date -s "`date`"</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2012/07/july-1-2012-tomcat-problems-high-cpuload-probably-caused-by-the-leap-second/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Where is Java going?</title>
+		<link>/2010/09/where-is-java-going/</link>
+					<comments>/2010/09/where-is-java-going/#comments</comments>
+		
+		<dc:creator><![CDATA[Matt Smith]]></dc:creator>
+		<pubDate>Wed, 29 Sep 2010 01:02:41 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[java]]></category>
+		<guid isPermaLink="false">http://forsetti.wordpress.com/?p=29</guid>
+
+					<description><![CDATA[The guys at The Basement Coders had a great chat with James Gosling, the father of Java. Gosling discusses his feelings on Oracle, Sun, IBM, NoSQL, and lots more. Although even Gosling doesn&#8217;t know where Oracle is going to take Java, there is plenty in this interview to add to the drama.]]></description>
+										<content:encoded><![CDATA[<p>The guys at The Basement Coders had a <a href="http://www.basementcoders.com/transcripts/James_Gosling_Transcript.html">great chat with James Gosling</a>, the father of Java.  Gosling discusses his feelings on Oracle, Sun, IBM, NoSQL, and lots more.</p>
+<p>Although even Gosling doesn&#8217;t know where Oracle is going to take Java, there is plenty in this interview to add to the drama.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/2010/09/where-is-java-going/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
